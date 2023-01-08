@@ -3,27 +3,14 @@ const { aboutView } = require('./views/aboutView');
 const { catalogView } = require('./views/catalogView');
 const { defaultView } = require('./views/defaultView'); 
 const { homeView } = require('./views/homeView');
+const router = require('./router');
 
-const routes = {
-    '/': homeView,
-    '/about': aboutView,
-    '/catalog': catalogView,
-}
+router.register('/', homeView); 
+router.register('/catalog', catalogView); 
+router.register('/about', aboutView);  
+router.register('default', defaultView);
 
-const server = htpp.createServer((request, response) => {
-    console.log('The servers seems to be working');
-    console.log('The request is: ' + request.method);
-    console.log('Url: ' + request.url);
+const server = htpp.createServer(router.match);
 
-    const url = new URL(request.url, `http:${request.headers.host}`);
-    const handler = routes[url.pathname];
-
-    if (typeof handler == 'function') {
-        handler(request, response);
-    } else {
-        defaultView(request, response);
-    }
-
-});
-
-server.listen(3000);
+server.listen(3000); 
+console.log('The server seems to work just fine');
