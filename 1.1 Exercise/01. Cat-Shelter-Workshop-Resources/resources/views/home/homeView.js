@@ -3,7 +3,6 @@ const {cats} = require('../../content/items');
 
 function showHomeView(request, response){
     const homeView = `
-    <main>
         <section class="cats">
             <ul>
                 ${cats.map((c) => {
@@ -21,8 +20,7 @@ function showHomeView(request, response){
                 }).join('\n')}
                 
             </ul>
-        </section>
-    </main>`; 
+        </section>`; 
 
     response.write(changeViews(homeView, 'Home Page')); 
     response.end();

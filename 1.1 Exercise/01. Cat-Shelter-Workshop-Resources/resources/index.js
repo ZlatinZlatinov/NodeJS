@@ -1,17 +1,22 @@
-const http = require('http'); 
+const http = require('http');
 
-const router = require('./changeRoutes');  
-const {showHomeView} = require('./views/home/homeView'); 
+const router = require('./changeRoutes');
+const { addBreed } = require('./views/addBreed');
+const { addCat, createCat } = require('./views/addCat');
+const { showHomeView } = require('./views/home/homeView');
 const { sendCSS } = require('./views/home/sendCss');
 const { defaultView } = require('./views/notFound');
 
-router.register('/', showHomeView);  
-router.register('/site.css', sendCSS);
+router.get('/', showHomeView);
+router.get('/site.css', sendCSS);
+router.get('/cats/addBreed', addBreed);
+router.get('/cats/addCat', addCat);
+router.post('/cats/addCat', createCat);
 
-router.register('default', defaultView);
+router.get('default', defaultView);
 
 
-const server = http.createServer(router.match); 
+const server = http.createServer(router.match);
 
-server.listen(3000); 
+server.listen(3000);
 console.log('The server is now running on port 3000...');

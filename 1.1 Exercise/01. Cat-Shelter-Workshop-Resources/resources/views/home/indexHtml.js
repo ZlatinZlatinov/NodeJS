@@ -1,4 +1,4 @@
-function changeViews(content, title){
+function changeViews(content, title) {
     return `
     <!DOCTYPE html>
 <html lang="en">
@@ -18,24 +18,20 @@ function changeViews(content, title){
         <nav>
             <ul class="navigation">
                 <li><a href="/">Home Page</a></li>
-                <li><a href="/cats/add-breed">Add Breed</a></li>
-                <li><a href="/cats/add-cat">Add Cat</a></li>
+                <li><a href="/cats/addBreed">Add Breed</a></li>
+                <li><a href="/cats/addCat">Add Cat</a></li>
             </ul>
         </nav>
         <h1>Cat Shelter</h1>
-        <form action="/search">
-            <input type="text">
-            <button type="button">Search</button>
-        </form>
     </header>
-
+    <main>
     ${content}
-
+    </main>
 </body>
 
 </html>
     `;
-}  
+}
 
 module.exports = {
     changeViews
