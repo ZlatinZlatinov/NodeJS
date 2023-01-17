@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-router.get('/about', (req, res) => {
+router.get('/', (req, res) => { // /about
     res.render('about');
 });
 
