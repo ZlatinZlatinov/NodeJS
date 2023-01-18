@@ -6,6 +6,8 @@ router.get('/', (req, res)=>{ // /catalog
 
 router.get('/:productId', (req, res)=>{ // /catalog
     res.render('details');
-});
+}); 
+
+
 
 module.exports = router;
