@@ -1,0 +1,38 @@
+[
+  {
+    "id": "soml0023",
+    "name": "akumulator",
+    "make": "varta",
+    "price": 180
+  },
+  {
+    "id": "soml0123",
+    "name": "sveshti",
+    "make": "berullium",
+    "price": 25
+  },
+  {
+    "id": "soml1023",
+    "name": "djanti",
+    "make": "enzo",
+    "price": 350
+  },
+  {
+    "id": "soml0025",
+    "name": "farove",
+    "make": "ddz",
+    "price": 90
+  },
+  {
+    "name": "Stelki",
+    "make": "Figli",
+    "price": "200",
+    "id": "soml7323"
+  },
+  {
+    "name": "CD/DVD",
+    "make": "Sony",
+    "price": "150",
+    "id": "soml0203"
+  }
+]

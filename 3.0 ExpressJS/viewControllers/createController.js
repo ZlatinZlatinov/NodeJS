@@ -1,11 +1,13 @@
-const router = require('express').Router(); 
+const router = require('express').Router();
+const { addNewPart } = require('../services/productService');
 
-router.get('/', (req, res)=>{
+router.get('/', (req, res) => {
     res.render('create');
-}); 
+});
 
-router.post('/', (req, res)=>{
-    console.log('Im trying to handel the request'); 
+router.post('/', (req, res) => {
+    const newPart = req.body;
+    addNewPart(newPart);
     res.redirect('/catalog');
 })
 

@@ -1,2 +1,10 @@
-<h1>Create new Product</h1> 
-<span>A new product is about to get created</span>
+<h1>Add new part to the store</h1>
+<form action="/create" method="post">
+    <label><span>Product Name: </span><input name="name" type="text"></label>
+    <br><br>
+    <label><span>Product Make: </span><input name="make" type="text"></label>
+    <br><br>
+    <label><span>Product Price: </span><input name="price" type="number"></label>
+    <br><br>
+    <input type="submit" value="Add new part">
+</form>

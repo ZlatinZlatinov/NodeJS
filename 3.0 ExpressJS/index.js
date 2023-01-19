@@ -1,8 +1,8 @@
-const express = require('express'); 
-const viewControllersSrc = './viewControllers/'; 
+const express = require('express');
+const viewControllersSrc = './viewControllers/';
 const homeController = require(viewControllersSrc + 'homeController');
 const aboutController = require(viewControllersSrc + 'aboutController');
-const catalogController = require(viewControllersSrc + 'catalogController'); 
+const catalogController = require(viewControllersSrc + 'catalogController');
 const createController = require(viewControllersSrc + 'createController');
 
 const hbs = require('express-handlebars'); // from here
@@ -16,11 +16,12 @@ const app = express();
 app.engine('.hbs', handlebars.engine);
 app.set('view engine', '.hbs'); //to here is boiler plate 
 
+app.use(express.urlencoded({ extended: true }));// or false? xdd
 app.use('/static', express.static('static'));
 
 app.use('/', homeController);
 app.use('/about', aboutController);
-app.use('/catalog', catalogController); 
+app.use('/catalog', catalogController);
 app.use('/create', createController);
 
 app.listen(3000, () => {

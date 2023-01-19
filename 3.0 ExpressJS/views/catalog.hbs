@@ -1,2 +1,11 @@
 <h1>Catalog page</h1> 
-<p>Here, you can browse in our list of items</p>
+{{#if products}} 
+<p>Here, you can browse in our list of autoparts</p> 
+<ul>
+    {{#each products}} 
+    {{> productCard}} 
+    {{/each}}
+</ul>
+{{else}} 
+<p>Sorry our inventory is empty right now</p> 
+{{/if}}
