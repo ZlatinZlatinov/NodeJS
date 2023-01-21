@@ -1,3 +1,16 @@
 [
-    
+    {
+        "id": 0, 
+        "name": "cube1", 
+        "description": "just a random cube", 
+        "img":"some image url", 
+        "difficultyLevel": 1 
+    }, 
+    {
+        "id": 1, 
+        "name": "cube2", 
+        "description": "just another random cube", 
+        "img":"some image url", 
+        "difficultyLevel": 2 
+    }
 ]
