@@ -1,30 +1,37 @@
 [
-    {
-        "id": 0, 
-        "name": "Gan356 Air SM", 
-        "description": "Magnets in AirSM will not drop, and their positions will be more precise with the Magnets-Snap-On design. With the use of 3mm*2mm magnets, the handfeel will be more stable and more comfortable. P.S. This design is brand new for the AirSM.", 
-        "img":"https://ae01.alicdn.com/kf/HTB1CSddXRxRMKJjy0Fdq6yifFXa6/Gan-356-Air-SM-3x3-Black-Magic-cube-GAN-Air-SM-Magnetic-3x3x3-Speed-cube-gans.jpg", 
-        "difficultyLevel": 3 
-    }, 
-    {
-        "id": 1, 
-        "name": "Eco-Dark", 
-        "description": "just another random cube with a dark colour and stuff", 
-        "img":"https://thingsidesire.com/wp-content/uploads/2018/06/Eco-Dark-Rubik%E2%80%99s-Cube2.jpg", 
-        "difficultyLevel": 6 
-    }, 
-    {
-        "id": 2, 
-        "name": "Pyraminx", 
-        "description": "just another random cube with a dark colour sdasdasdada and stuff", 
-        "img":"https://images-na.ssl-images-amazon.com/images/I/61izOzq%2BBAL._SY355_.jpg", 
-        "difficultyLevel": 1 
-    }, 
-    {
-        "id": 3, 
-        "name": "Megaminx", 
-        "description": " AAAAAAAAAAAA just another random cube dadadadasdasdaddasda with a dark colour sdasdasdada and stuff", 
-        "img":"https://images-na.ssl-images-amazon.com/images/I/61HpQqVQ37L._SY355_.jpg", 
-        "difficultyLevel": 3 
-    }
+  {
+    "id": 0,
+    "name": "Gan356 Air SM",
+    "description": "Magnets in AirSM will not drop, and their positions will be more precise with the Magnets-Snap-On design. With the use of 3mm*2mm magnets, the handfeel will be more stable and more comfortable. P.S. This design is brand new for the AirSM.",
+    "img": "https://ae01.alicdn.com/kf/HTB1CSddXRxRMKJjy0Fdq6yifFXa6/Gan-356-Air-SM-3x3-Black-Magic-cube-GAN-Air-SM-Magnetic-3x3x3-Speed-cube-gans.jpg",
+    "difficultyLevel": 3
+  },
+  {
+    "id": 1,
+    "name": "Eco-Dark",
+    "description": "just another random cube with a dark colour and stuff",
+    "img": "https://thingsidesire.com/wp-content/uploads/2018/06/Eco-Dark-Rubik%E2%80%99s-Cube2.jpg",
+    "difficultyLevel": 6
+  },
+  {
+    "id": 2,
+    "name": "Pyraminx",
+    "description": "just another random cube with a dark colour sdasdasdada and stuff",
+    "img": "https://images-na.ssl-images-amazon.com/images/I/61izOzq%2BBAL._SY355_.jpg",
+    "difficultyLevel": 1
+  },
+  {
+    "id": 3,
+    "name": "Megaminx",
+    "description": " AAAAAAAAAAAA just another random cube dadadadasdasdaddasda with a dark colour sdasdasdada and stuff",
+    "img": "https://images-na.ssl-images-amazon.com/images/I/61HpQqVQ37L._SY355_.jpg",
+    "difficultyLevel": 3
+  },
+  {
+    "name": "Next",
+    "description": "NeXT, Inc. е американска технологична компания, специализирана в компютърни работни станции, предназначени за висше образование и бизнес употреба.",
+    "img": "data:image/png;base64,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",
+    "difficultyLevel": "6",
+    "id": 5
+  }
 ]
