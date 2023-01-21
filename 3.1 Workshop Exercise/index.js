@@ -6,4 +6,4 @@ const app = require('express')();
 require('./config/express')(app);
 require('./config/routes')(app);
 
-app.listen(config.port, console.log(`Listening on port ${config.port}! lay low...`));
+app.listen(3000, console.log(`Listening on port 3000! lay low...`));
