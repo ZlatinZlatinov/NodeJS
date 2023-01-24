@@ -42,15 +42,19 @@ async function createNewPerson() {
 
     const Student = mongoose.model('Student', studenSchema);
 
-    const newStudent = new Student({
-        firstName: "Cristiano ",
-        lastName: "Ronaldo",
-        facultyNumber: '50122',
-        age: 37
-    });
+    // const newStudent = new Student({
+    //     firstName: "Cristiano ",
+    //     lastName: "Ronaldo",
+    //     facultyNumber: '50122',
+    //     age: 37
+    // });
 
-    await newStudent.save();
-    console.log('New Student created!');
+    // await newStudent.save();
+    // console.log('New Student created!');
+
+    // The Schema creating should be in another modue, and
+    // the creating of the new Student/Person should also be in 
+    // in separate module so that it can receive the params
 
     const data = await Student.find({}); // returns an array with collection of objects
     console.log(data[1].get('fullName'));
