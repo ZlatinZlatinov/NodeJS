@@ -12,7 +12,7 @@ createController.post('/', async (req, res) => {
         authorName,
         title,
         description
-    }).save();
+    }).save(); // tva mojeshe i da e na otdelen service, kato trqbva da ima i try catch
     res.redirect('/catalog');
 }); 
 // Probably should implement some verification logic for the request body
