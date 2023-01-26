@@ -44,4 +44,9 @@ footer{
     padding: 5px;
     background-color: antiquewhite; 
     
+} 
+
+label, textarea {
+    display: block; 
+    margin-bottom: 15px;
 }
