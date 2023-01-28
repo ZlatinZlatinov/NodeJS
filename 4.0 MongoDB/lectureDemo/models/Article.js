@@ -4,17 +4,17 @@ const articleSchema = new Schema({
     authorName: {
         type: String,
         required: true,
-        minlength: 4
+        minLength: 4
     },
     title: {
         type: String,
         required: true,
-        minlength: 4
+        minLength: 4
     },
     description: {
         type: String,
         required: true,
-        minlength: 10
+        minLength: 10
     },
 });
 

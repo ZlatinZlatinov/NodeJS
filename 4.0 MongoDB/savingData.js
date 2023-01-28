@@ -75,7 +75,7 @@ async function createNewPerson() {
 
     //const studentsData = await Student.find({}); // returns an array with collection of objects 
     //const subjectsData = await Subject.find({});
-    const searchedStudent = await Student.findOne({'firstName': 'Andres'});
+    //const searchedStudent = await Student.findOne({'firstName': 'Andres'});
     //const subject = await Subject.findOne({});
     //subjectsData[0].joindedStudents.push(studentsData[2]); 
     //await subjectsData[0].save();
