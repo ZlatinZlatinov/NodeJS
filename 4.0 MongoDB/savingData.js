@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 async function createNewPerson() {
 
@@ -23,7 +24,8 @@ async function createNewPerson() {
             type: Number,
             min: [18, 'Must be atleast 18, got {VALUE}'],
             max: 50
-        }
+        },
+        subjects: [{ type: Schema.Types.ObjectId, ref: 'Subject' }]
     });
 
     studenSchema.path('firstName')
@@ -37,27 +39,48 @@ async function createNewPerson() {
     studenSchema
         .virtual('fullName').get((function () {
             return this.firstName + ' ' + this.lastName + ' Suiiii!';
-        })); 
+        }));
+
     // returns the fullname of the student    
 
     const Student = mongoose.model('Student', studenSchema);
 
-    // const newStudent = new Student({
-    //     firstName: "Cristiano ",
-    //     lastName: "Ronaldo",
-    //     facultyNumber: '50122',
-    //     age: 37
-    // });
+    // <--------- Subjects -------------> 
+    const subjectSchema = new Schema({
+        title: String,
+        joindedStudents: [{ type: [Schema.Types.ObjectId], ref: Student }]
+    });
+    const Subject = model('Subject', subjectSchema);
 
-    // await newStudent.save();
+    // const newStudent = new Student({
+    //     firstName: "Andres ",
+    //     lastName: "Iniesta",
+    //     facultyNumber: '50122',
+    //     age: 35
+    // }); 
+
+    // const newSubject = new Subject({
+    //     title: 'Maths'
+    // });
+    //await newStudent.save(); 
+    // await newSubject.save();
     // console.log('New Student created!');
 
     // The Schema creating should be in another modue, and
     // the creating of the new Student/Person should also be in 
-    // in separate module so that it can receive the params
+    // in separate module so that it can receive the params 
 
-    const data = await Student.find({}); // returns an array with collection of objects
-    console.log(data[1].get('fullName'));
+
+
+
+    //const studentsData = await Student.find({}); // returns an array with collection of objects 
+    //const subjectsData = await Subject.find({});
+    const searchedStudent = await Student.findOne({'firstName': 'Andres'});
+    //const subject = await Subject.findOne({});
+    //subjectsData[0].joindedStudents.push(studentsData[2]); 
+    //await subjectsData[0].save();
+    // referirane kum 2 razlichi modela
+    console.log(searchedStudent);
 }
 
 module.exports = createNewPerson;
