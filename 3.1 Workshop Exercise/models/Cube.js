@@ -2,14 +2,14 @@ const { Schema, model } = require('mongoose');
 
 const cubeSchema = new Schema({
     name: { type: String, required: true },
-    description: { type: String, required: true, maxLength: 100 },
+    description: { type: String, required: true, maxLength: 300 },
     imgUrl: {
         type: String,
         required: true,
         validate: {
             validator: function () {
-                return this.imgUrl.sratsWith('http')
-                    || this.imgUrl.startsWith('https');
+                return this.imgUrl.toString().includes('http')
+                    || this.imgUrl.toString().includes('https');
             },
             message: props => `${props.value} is not a valid image URL!`
         }

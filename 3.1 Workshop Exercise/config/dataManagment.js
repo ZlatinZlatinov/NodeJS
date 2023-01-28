@@ -2,14 +2,17 @@ const fs = require('fs');
 const cubesUrl = './config/database.json';
 const cubes = JSON.parse(fs.readFileSync(cubesUrl));
 
+/*This method is no longer supported!*/
 function getCubes() { // returns all existing cubes in the inventory
     return cubes;
 }
 
+/*This method is no longer supported!*/ 
 function getCubeDetails(id) { // getting a specific cube by its id
     return cubes.filter((c) => c.id == id)[0];
 }
 
+/*This method is no longer supported!*/ 
 function addNewCube(cube) { // adding new cube to the list
     const id = cubes.length + 1;
     cube.id = id;
@@ -47,8 +50,5 @@ function searchCube(searchedOject) { // some kind of search logic implemented xd
 }
 
 module.exports = {
-    getCubes,
-    getCubeDetails,
-    addNewCube,
     searchCube
 }

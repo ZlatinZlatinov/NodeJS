@@ -1,8 +1,9 @@
 const router = require('express').Router(); 
-const {getCubes} = require('../config/dataManagment');
+//const {getCubes} = require('../config/dataManagment'); no longer is supported
+const {getallCubes} = require('../services/loadAllCubse');
 
-router.get('/', (request, response) => { // / - homepage
-    const cubes = getCubes();
+router.get('/', async (request, response) => { // / - homepage
+    const cubes = await getallCubes();
     response.render('home', {
         cubes
     });
