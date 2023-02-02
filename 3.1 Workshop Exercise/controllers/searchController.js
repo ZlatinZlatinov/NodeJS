@@ -1,13 +1,20 @@
-const { searchCube } = require('../config/dataManagment');
+//const { searchCube } = require('../config/dataManagment'); No longer supported!
+const { searchForCube } = require('../services/searchCube');
 
-const router = require('express').Router(); 
+const router = require('express').Router();
 
-router.post('/', (req, res)=>{
-    const cubes = searchCube(req.body); 
+router.post('/', async (req, res) => {
+    console.log(req.body);
+    const { search, from, to } = req.body;
+    const cubes = await searchForCube(search);
 
-    res.render('home', {
-        cubes
-    });
-}); 
+    if (cubes.length > 0) {
+        res.render('home', {
+            cubes
+        });
+    } else {
+        res.redirect('/');
+    }
+});
 
 module.exports = router;

@@ -12,5 +12,5 @@ bcrypt.genSalt(saltRounds, (err, salt) => {
 const keyboardHeadSmash = '$2b$10$Hu/u5SZNLyMqB4OmLCElj.zljIvNlxVvIHc0ASHPt8jznb6l6OMS.';
 
 bcrypt.compare(myRawPAssword, keyboardHeadSmash, (err, res) => {
-    console.log(res);
+    console.log(res); // true
 });

@@ -20,6 +20,7 @@ function addNewCube(cube) { // adding new cube to the list
     fs.writeFileSync(cubesUrl, JSON.stringify(cubes, null, 2));
 }
 
+/*This method is no longer supported!*/
 function searchCube(searchedOject) { // some kind of search logic implemented xdd
     const searchedWord = searchedOject.search;
     let from, to;
@@ -49,6 +50,3 @@ function searchCube(searchedOject) { // some kind of search logic implemented xd
 
 }
 
-module.exports = {
-    searchCube
-}
