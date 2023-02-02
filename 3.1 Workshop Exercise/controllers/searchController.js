@@ -4,7 +4,6 @@ const { searchForCube } = require('../services/searchCube');
 const router = require('express').Router();
 
 router.post('/', async (req, res) => {
-    console.log(req.body);
     const { search, from, to } = req.body;
     const cubes = await searchForCube(search);
 
