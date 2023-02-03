@@ -1,7 +1,7 @@
 const Cube = require("../models/Cube");
 
-async function showCubeDetails(cubeName){
-    const cube = await Cube.findOne({}).where('name').equals(cubeName); 
+async function showCubeDetails(cubeId){
+    const cube = await Cube.findById(cubeId); 
     return cube;
 } 
 
