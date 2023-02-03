@@ -1,7 +1,17 @@
-<h1>{{name}}</h1>
-<img class="cube" src="{{imgUrl}}">
+<h1>{{cube.name}}</h1>
+<img class="cube" src="{{cube.imgUrl}}">
 <div class="details">
-  <p><span>Description:</span> {{description}}</p>
-  <p><span>Difficulty level:</span> {{difficultyLevel}}</p>
+  <p><span>Description:</span> {{cube.description}}</p>
+  <p><span>Difficulty level:</span> {{cube.difficultyLevel}}</p>
   <a class="btn" href="/">Back</a>
 </div>
+
+<form action="/details/{{cube._id}}" method="POST">
+  <label for="accessory">Accessories</label>
+  <select name="accessoryId" id="accessory">
+    {{#each accesories}}
+    <option value="{{_id}}">{{name}}</option>
+    {{/each}}
+  </select>
+  <input type="submit" value="Attach">
+</form>

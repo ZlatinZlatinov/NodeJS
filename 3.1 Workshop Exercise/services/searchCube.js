@@ -5,6 +5,21 @@ async function searchForCube(name, from, to) {
     return cube;
 }
 
+async function searchCubeById(idCube, idAccessory) {
+    const cube = await Cube.findById(idCube);
+    if (cube.accessories.includes(idAccessory)) {
+        return true; // The cube already has this accessory;
+    } else {
+        await Cube.findById(idCube)
+            .then((c) => {
+                c.accessories.push(idAccessory);
+                c.save();
+            });
+    } 
+    return false;
+}
+
 module.exports = {
-    searchForCube
+    searchForCube,
+    searchCubeById
 }

@@ -117,6 +117,13 @@ button, main a.btn {
     color: white;
 }
 
+p.goHome, 
+p.goHome>a {
+    text-align: center;
+    color: black;
+    font-weight: 500;
+}
+
 button:hover {
     background-color: #0B2133;
     color: white;
