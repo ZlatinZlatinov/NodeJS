@@ -6,12 +6,15 @@
   <a class="btn" href="/">Back</a>
 </div>
 
-<form action="/details/{{cube._id}}" method="POST">
-  <label for="accessory">Accessories</label>
-  <select name="accessoryId" id="accessory">
-    {{#each accesories}}
-    <option value="{{_id}}">{{name}}</option>
-    {{/each}}
-  </select>
-  <input type="submit" value="Attach">
-</form>
+<div class="form">
+  <h1>Attach a new accessory</h1>
+  <form action="/details/{{cube._id}}" method="POST">
+    <label for="accessory">Accessories</label>
+    <select name="accessoryId" id="accessory">
+      {{#each accesories}}
+      <option value="{{_id}}">{{name}}</option>
+      {{/each}}
+    </select>
+    <input type="submit" value="Attach">
+  </form>
+</div>

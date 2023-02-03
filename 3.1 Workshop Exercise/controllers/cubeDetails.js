@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { getAllAccessories, getAccessoryByID } = require('../services/accessoryService');
 const { searchCubeById } = require('../services/searchCube');
-//const {getCubeDetails} = require('../config/dataManagment'); no longer supported
 const { showCubeDetails } = require('../services/showCubeDetails');
+//const {getCubeDetails} = require('../config/dataManagment'); no longer supported
 
 router.get('/:cubeId', async (request, response) => { // cube details
     const cubeId = request.params.cubeId;
@@ -19,12 +19,13 @@ router.get('/:cubeId', async (request, response) => { // cube details
 router.post('/:cubeId', async (req, res) => {
     const cubeId = req.params.cubeId;
     const accesoryId = req.body.accessoryId;
-    await getAccessoryByID(accesoryId, cubeId);
-    const result = await searchCubeById(cubeId, accesoryId);
-    if (result) {
+    const result = await searchCubeById(cubeId, accesoryId); // returns true or false
+    
+    if (result) { // if true, means that the cube already has attached that accessory
         res.render('accessoryEror');
         return;
     }
+    await getAccessoryByID(accesoryId, cubeId); // it simply pushes the cubeID to the collection
 
     res.redirect(`/details/${cubeId}`);
 });
