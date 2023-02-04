@@ -6,12 +6,13 @@ const { showCubeDetails } = require('../services/showCubeDetails');
 
 router.get('/:cubeId', async (request, response) => { // cube details
     const cubeId = request.params.cubeId;
-    const cube = await showCubeDetails(cubeId);
+    const [cube, cubeAccessories] = await showCubeDetails(cubeId);
     const accesories = await getAllAccessories();
-
+    
     response.render('details', {
         title: 'Details',
         cube,
+        cubeAccessories,
         accesories
     });
 }); // maybe in a while I should add some middlewares  
