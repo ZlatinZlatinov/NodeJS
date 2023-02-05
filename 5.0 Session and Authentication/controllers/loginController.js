@@ -9,7 +9,6 @@ loginController.get('/', (req, res) => {
 });
 
 loginController.post('/', async (req, res) => {
-    console.log(req.body);
     // To do: authenticate user comparare passowrds from database using bcrypt and hash it 
     // if conditions are not met, display error on the client 
     const { username, password } = req.body;

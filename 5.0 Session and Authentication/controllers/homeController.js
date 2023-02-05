@@ -2,8 +2,9 @@ const homeController = require('express').Router();
 
 
 homeController.get('/', (req, res) => {
-    console.log('>>Cooookieeee waraaap ' + req.cookies['auth']);
-    res.render('home');
-}); 
+    const isAuthorised = req.isAuthorised;
+    console.log(isAuthorised);
+    res.render('home', { isAuthorised });
+});
 
 module.exports = homeController;
