@@ -1,5 +1,6 @@
 const server = require('express')();
 const session = require('express-session'); // probably wont use it
+const { connectDB } = require('./config/connectToDataBase');
 
 //const server = express();
 
@@ -30,6 +31,7 @@ require('./config/routes')(server);
 
 
 
-server.listen(3000, () => {
+server.listen(3000, async () => {
+    await connectDB();
     console.log('The server is now listening on port 3000...');
 });
