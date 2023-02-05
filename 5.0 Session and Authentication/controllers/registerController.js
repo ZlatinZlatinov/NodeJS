@@ -22,14 +22,14 @@ registerController.post('/', async (req, res) => {
     // I guess those operations could be in a middleware bu idk..
     // check if password and repeat password match 
     // if not display error on the client 
-    if (password != repass) {
-        const errPass = 'Passwords must be equal!';
+    if (password != repass || password.length < 6) {
+        const errPass = 'Passwords must be equal and 6 or more characters long!';
         res.render('register', { errPass });
         return;
     }
 
 
-    //await createUser(username.toLowerCase(), password);
+    await createUser(username.toLowerCase(), password);
     // if those are met, save the new user to the database 
     // set him a token I guess ?!?!?
     //and redirect him to the login page 
