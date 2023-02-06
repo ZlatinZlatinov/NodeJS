@@ -1,6 +1,7 @@
 const express = require('express');
 const hbs = require('express-handlebars');
 const cookieParser = require('cookie-parser');
+const safeGuard = require('../middlewares/safeGuard');
 
 const handlebars = hbs.create({
     extname: '.hbs'
@@ -16,4 +17,5 @@ module.exports = (server) => {
     server.use('/static', express.static('static')); // for static files
 
     server.use(cookieParser());
+    server.use(safeGuard);
 }

@@ -2,7 +2,8 @@ const createController = require('express').Router();
 
 createController.get('/', (req, res) => {
     const isAuthorised = req.isAuthorised;
-    res.render('create', { isAuthorised });
+    console.log(isAuthorised);
+    res.render('create');
 });
 
 module.exports = createController;

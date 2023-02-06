@@ -8,6 +8,15 @@ function signToken(payload) { // I guess this might be an async function but idk
     return token;
 }
 
+function verifyToken(token) {
+
+    const decodedToken = jwt.verify(token, secret);
+
+    //console.log(err.message);
+    return decodedToken;
+}
+
 module.exports = {
-    signToken
+    signToken,
+    verifyToken
 }
