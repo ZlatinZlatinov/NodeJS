@@ -1,97 +1,152 @@
-body{
+body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-ul.navigation{
-    list-style: none; 
+ul.navigation {
+    list-style: none;
     background-color: green;
     color: white;
-    
+
     font-size: 16pt;
     text-align: center;
     padding: 10px;
     margin: 0;
-} 
+}
 
-a{
+a {
     text-decoration: none;
     color: white;
     font-weight: 600;
-} 
+}
 
-li{
+li {
     display: inline-block;
     padding: 10px;
     margin-right: 10px;
 }
 
-label{
-    display: block; 
+label {
+    display: block;
     margin: 20px;
     font-size: 16pt;
-} 
+}
 
-input{
+input {
     display: block;
     font-size: 16pt;
     margin-top: 4px;
     border-radius: 10px;
-} 
+}
 
-.label-form{
+.label-form {
     padding: 5px;
     background-color: rgb(76, 153, 76);
     color: white;
     border-radius: 10px;
-}  
+}
 
-.submit-btn{
+.submit-btn {
     margin-left: 80px;
     background-color: rgb(54, 151, 54);
     color: white;
     font-weight: 500;
-    border: none; 
-    padding: 5px 10px; 
+    border: none;
+    padding: 5px 10px;
     font-size: 16pt;
-} 
+}
 
-section#login, section#register{
+section#login,
+section#register,
+section#create {
     padding: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
-}  
+}
 
-section#homepage{
+section#homepage {
     width: 100%;
     height: auto;
     display: flex;
-    text-align: center; 
+    text-align: center;
     justify-content: center;
     /*align-items: center;*/
 }
 
-.home-img{
+.home-img {
     width: 100%;
     height: auto;
     object-fit: contain;
-} 
+}
 
-footer{
+footer {
     text-align: center;
-} 
+}
 
 
-section#homepage h1{
+section#homepage h1 {
     position: absolute;
     color: azure;
-    font-weight: 700; 
-    font-size: 40pt; 
+    font-weight: 700;
+    font-size: 40pt;
     font-style: italic;
     font-family: 'Times New Roman', Times, serif;
 }
 
+textarea {
+    display: block;
+    margin-top: 4px;
+    border-radius: 5px;
+}
 
 
+div.card {
+    background-color: rgb(255, 255, 255);
+    width: 18%;
+    height: auto;
+    padding: 10px;
+    display: inline-block;
+    margin-right: 10px;
+    border: 1px solid;
+    border-color: rgb(77, 74, 74);
+}
+
+div.card:hover {
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.card-btn {
+    background: rgb(0, 153, 0);
+    border: none;
+    border-radius: 8px;
+    padding: 4px 4px;
+    font-size: 12pt;
+}
+
+.card-btn:hover {
+    font-weight: 600;
+    color: white;
+    font-size: 13pt;
+}
+
+.card-title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1em/1.2;
+} 
+
+.card-img{
+    box-sizing: border-box;
+    width: 100%;
+    height: 250px;
+    object-fit: scale-down;
+    padding: 4px;
+    border: 0.5px solid;
+    border-color: lightgray;
+} 
+
+section#catalog{
+    padding: 20px;
+}

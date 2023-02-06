@@ -1,3 +1,4 @@
+const catalogController = require("../controllers/catalogController");
 const createController = require("../controllers/createController");
 const homeController = require("../controllers/homeController");
 const loginController = require("../controllers/loginController");
@@ -9,8 +10,9 @@ const authorised = require("../middlewares/isAuthorised");
 
 module.exports = (server) => {
     server.use(homeController);
-    server.use('/login', loginController);
-    server.use('/register', registerController);
     server.use('/create', authorised, createController);
+    server.use('/catalog', catalogController);
+    server.use('/login', loginController);
     server.use('/logout', logOutController);
+    server.use('/register', registerController);
 }
