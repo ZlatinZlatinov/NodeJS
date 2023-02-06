@@ -11,5 +11,5 @@ module.exports = (server) => {
     server.use('/login', loginController);
     server.use('/register', registerController);
     server.use('/create', safeGuard, createController);
-    server.use('/logut', safeGuard, logOutController);
+    server.use('/logout', safeGuard, logOutController);
 }
