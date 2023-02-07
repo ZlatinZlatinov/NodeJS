@@ -1,16 +1,22 @@
 <section id="catalog">
     <h1>List of Items</h1>
+    {{#if itemsList}}
+    {{#each itemsList}}
     <div class="card">
         <div>
-            <img src="https://scontent-sof1-1.xx.fbcdn.net/v/t39.30808-6/323335986_6000154160042715_5977845140599434511_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=e3f864&_nc_ohc=Y0fl-WO-X_MAX9VmQJa&tn=TFkQfmj4mZfZM7sE&_nc_ht=scontent-sof1-1.xx&oh=00_AfB2c9qRN0H0iSgSYDe2EwPLCnp7aq5Jln6tNBUXktdwbg&oe=63E5A407" class="card-img" alt="img">
+            <img src="{{imgUrl}}" class="card-img" alt="img">
         </div>
 
         <div>
-            <h3 class="card-title">Card Title</h3>
-            <p>Shord descrioption ot what this is all about - CSS seem like using magic spells</p>
+            <h3 class="card-title">{{itemName}}</h3>
+            <p class="card-category">Category: {{category}}</p>
         </div>
-        <button class="card-btn">See More</button>
+        <a href="/details/{{_id}}" class="card-btn">See More</a>
     </div>
+    {{/each}} 
+    {{else}} 
+    <p>Sorry, catalog is empty</p> 
+    {{/if}}
 
     <div class="card">
         <div>

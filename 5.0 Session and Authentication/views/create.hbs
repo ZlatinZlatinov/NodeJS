@@ -3,9 +3,14 @@
     <form action="/create" method="post">
      <h1>Create new Item &starf;</h1>
         <label for="item"><span class="label-form">Item Name:</span> <input type="text" name="itemName"></label>
-        <label for="image"><span class="label-form">Image URL:</span> <input type="text" name="itemURL"></label>
-        <label for="description"><span class="label-form">Item Description:</span> <textarea name="itemDescr" cols="30"
+        <label for="image"><span class="label-form">Image URL:</span> <input type="text" name="imgUrl"></label>
+        <label for="description"><span class="label-form">Item Description:</span> <textarea name="description" cols="30"
                 rows="5"></textarea></label>
+        <select name="category" id="itemCategory">
+            <option value="trees">Trees</option> 
+            <option value="plants">Plants</option>
+            <option value="animals">Animals</option>
+        </select>
         <input type="submit" class="submit-btn" value="Create Item">
     </form>
 

@@ -11,7 +11,8 @@ const userSchema = new Schema({
         type: String,
         required: true,
         minLenght: 5
-    }
+    }, 
+    itemsList: [{type: Schema.Types.ObjectId, ref: 'Item'}]
 });
 
 const User = model('User', userSchema);
