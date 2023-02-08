@@ -73,7 +73,7 @@ section#homepage {
     display: flex;
     text-align: center;
     justify-content: center;
-    /*align-items: center;*/
+    align-items: center;
 }
 
 .home-img {
@@ -94,8 +94,8 @@ section#homepage h1 {
     font-size: 40pt;
     font-style: italic;
     font-family: 'Times New Roman', Times, serif;
-    background: rgb(255, 255, 255);
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 255, 72, 0.25253851540616246) 0%);
+    background: rgb(219, 218, 218);
+    background: radial-gradient(circle, rgba(219, 218, 218, 0.4990371148459384) 0%, rgba(30, 215, 82, 0.25253851540616246) 30%);
     border-radius: 20px;
 }
 
