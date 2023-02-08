@@ -9,7 +9,6 @@ registerController.get('/', (req, res) => {
 // To do: post method to register user
 
 registerController.post('/', async (req, res) => {
-    console.log(req.body);
     const { username, password, repass } = req.body;
     //Add validattion if the username alreday exists
     const user = await findByUsername(username.toLowerCase()); // db could throw eror too :/

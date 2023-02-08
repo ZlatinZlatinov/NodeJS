@@ -21,7 +21,6 @@ loginController.post('/', async (req, res) => {
     }
     // if met log user and send him to homepage with proper views
     const id = user[0]._id;
-    console.log(id);
     const token = signToken({ id, username });
     res.cookie('auth', token);
     res.redirect('/');

@@ -1,21 +1,20 @@
 <section id="details">
-    {{#if eroro}}
-    <p class="err">No such item</p>
-    {{else}}
+    {{#if item}}
     <div class="details-container">
-        <h1 class="itemName">{{itemName}}</h1>
+        <h1 class="itemName">{{item.itemName}}</h1>
         <div class="details-desc">
-            <img src="{{imgUrl}}" class="details-img" alt="image">
+            <img src="{{item.imgUrl}}" class="details-img" alt="image">
             <div class="btns">
-            <p class="description">{{description}}</p>
+                <p class="description">{{item.description}}</p>
                 <a href="/catalog" class="back-btn">Back</a>
                 {{#if isOwner}}
-                <a href="/edit{{_id}}" class="edit-btn">Edit</a>
-                <a href="/delete{{_id}}" class="delete-btn">Delete</a>
+                <a href="/edit{{item._id}}" class="edit-btn">Edit</a>
+                <a href="/delete{{item._id}}" class="delete-btn">Delete</a>
                 {{/if}}
             </div>
         </div>
-
     </div>
+    {{else}}
+    <p class="err">No such item</p>
     {{/if}}
 </section>
