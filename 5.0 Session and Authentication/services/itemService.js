@@ -10,7 +10,7 @@ async function getAllItems() {
 }
 
 async function findItemById(itemId) {
-    return Item.findById(itemId);
+    return Item.findById(itemId).lean();
 }
 
 async function findItemByName(itemName) {

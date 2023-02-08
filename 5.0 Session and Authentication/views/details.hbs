@@ -1,0 +1,21 @@
+<section id="details">
+    {{#if eroro}}
+    <p class="err">No such item</p>
+    {{else}}
+    <div class="details-container">
+        <h1 class="itemName">{{itemName}}</h1>
+        <div class="details-desc">
+            <img src="{{imgUrl}}" class="details-img" alt="image">
+            <div class="btns">
+            <p class="description">{{description}}</p>
+                <a href="/catalog" class="back-btn">Back</a>
+                {{#if isOwner}}
+                <a href="/edit{{_id}}" class="edit-btn">Edit</a>
+                <a href="/delete{{_id}}" class="delete-btn">Delete</a>
+                {{/if}}
+            </div>
+        </div>
+
+    </div>
+    {{/if}}
+</section>

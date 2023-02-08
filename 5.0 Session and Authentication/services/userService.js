@@ -12,6 +12,10 @@ async function findByUsername(username) {
     }
 }
 
+async function findUserById(id) {
+    return User, findUserById(id);
+}
+
 async function createUser(username, password) {
     const hashed = await hashPassword(password);
     const userObj = {
@@ -25,5 +29,6 @@ async function createUser(username, password) {
 
 module.exports = {
     findByUsername,
-    createUser
+    createUser, 
+    findUserById
 }

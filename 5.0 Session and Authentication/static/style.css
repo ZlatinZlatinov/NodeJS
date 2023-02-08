@@ -59,7 +59,8 @@ input {
 
 section#login,
 section#register,
-section#create {
+section#create,
+section#details {
     padding: 150px;
     display: flex;
     justify-content: center;
@@ -93,6 +94,9 @@ section#homepage h1 {
     font-size: 40pt;
     font-style: italic;
     font-family: 'Times New Roman', Times, serif;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 255, 72, 0.25253851540616246) 0%);
+    border-radius: 20px;
 }
 
 textarea {
@@ -118,12 +122,13 @@ div.card:hover {
         0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 
-.card-btn {
+.card-btn,
+.edit-btn {
     background: rgb(0, 153, 0);
     border: none;
     border-radius: 8px;
     padding: 4px 4px;
-    font-size: 12pt;
+    font-size: 14pt;
 }
 
 .card-btn:hover {
@@ -154,4 +159,44 @@ section#catalog {
 
 .card-category {
     text-transform: capitalize;
+}
+
+a.delete-btn {
+    background-color: red;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 4px;
+    font-size: 14t;
+}
+
+a.back-btn {
+    background-color: goldenrod;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 4px;
+    font-size: 14pt;
+}
+
+.itemName {
+    text-transform: capitalize;
+    font-size: 20pt;
+}
+
+.details-desc {
+    display: flex;
+    gap: 5%;
+}
+
+.details-img {
+    width: 30%;
+    height: auto;
+    object-fit: contain;
+}
+
+p.err {
+    background-color: red;
+    color: white;
+    padding: 2px 5px;
+    text-decoration: wavy; 
+    text-align: center;
 }

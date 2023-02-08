@@ -5,7 +5,7 @@ const { connectDB } = require('./config/connectToDataBase');
 //const server = express();
 
 require('./config/express')(server); 
-require('./config/routes')(server);
+require('./config/routes')(server); 
 
 
 
