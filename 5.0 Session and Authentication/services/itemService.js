@@ -25,6 +25,10 @@ async function updateItem(itemId, name, img, desc, cat){
             category: cat
         }
     }).then(item => item.save()); 
+} 
+
+async function deleteItem(itemId){
+    Item.findByIdAndDelete(itemId).then();
 }
 
 module.exports = {
@@ -32,5 +36,6 @@ module.exports = {
     getAllItems,
     findItemById, 
     findItemByName, 
-    updateItem
+    updateItem, 
+    deleteItem
 }

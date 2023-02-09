@@ -1,5 +1,6 @@
 const catalogController = require("../controllers/catalogController");
 const createController = require("../controllers/createController");
+const deleteController = require("../controllers/deleteController");
 const detailsController = require("../controllers/detailsController");
 const editController = require("../controllers/editController");
 const erorController = require("../controllers/errorController");
@@ -15,6 +16,7 @@ module.exports = (server) => {
     server.use(homeController);
     server.use('/create', authorised, createController);
     server.use('/catalog', catalogController);
+    server.use('/delete', authorised, deleteController)
     server.use('/details', detailsController);
     server.use('/edit', authorised, editController);
     server.use('/login', loginController);

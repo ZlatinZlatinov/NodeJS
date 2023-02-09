@@ -1,7 +1,6 @@
 const User = require("../models/User");
 const { hashPassword } = require("./hashService");
 
-
 async function findByUsername(username) {
     try {
         const user = await User.find({ username });
@@ -23,6 +22,15 @@ async function createUser(username, password) {
         password: hashed
     }
     await new User(userObj).save();
+} 
+
+async function updateUserList(userId, itemId){
+    User.findById(userId)
+    .then((user) => {
+        const index = user.itemsList.indexOf(itemId); 
+        user.itemsList.splice(index, 1); 
+        user.save();
+    });
 }
 
 
@@ -30,5 +38,6 @@ async function createUser(username, password) {
 module.exports = {
     findByUsername,
     createUser, 
-    findUserById
+    findUserById, 
+    updateUserList
 }

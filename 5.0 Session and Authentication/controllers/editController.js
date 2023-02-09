@@ -17,9 +17,8 @@ editController.post('/:itemId', async (req, res) => {
 
     for (let element of [itemName, imgUrl, description, category]) {
         if (element == '') {
-            console.log('erroro here?');
             res.render('edit');
-            return; // some kind of cheking valuse;
+            return; // some kind of cheking values;
         }
     }
 

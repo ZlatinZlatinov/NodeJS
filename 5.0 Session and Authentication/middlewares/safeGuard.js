@@ -9,6 +9,8 @@ safeGuard.get('*', (req, res, next) => {
         try {
             const decodedToken = verifyToken(token);
             req.isAuthorised = true;
+            req.username = decodedToken.username;
+            req.userId = decodedToken.id;
             res.locals.username = decodedToken.username;
             res.locals.isAuthorised = true;
         } catch (err) {
