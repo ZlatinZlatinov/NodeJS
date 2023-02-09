@@ -8,8 +8,8 @@
                 <p class="description">{{item.description}}</p>
                 <a href="/catalog" class="back-btn">Back</a>
                 {{#if isOwner}}
-                <a href="/edit{{item._id}}" class="edit-btn">Edit</a>
-                <a href="/delete{{item._id}}" class="delete-btn">Delete</a>
+                <a href="/edit/{{item._id}}" class="edit-btn">Edit</a>
+                <a href="/delete/{{item._id}}" class="delete-btn">Delete</a>
                 {{/if}}
             </div>
         </div>

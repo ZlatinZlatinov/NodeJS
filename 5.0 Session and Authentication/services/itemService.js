@@ -15,11 +15,22 @@ async function findItemById(itemId) {
 
 async function findItemByName(itemName) {
     return Item.findOne({ itemName });
+} 
+
+async function updateItem(itemId, name, img, desc, cat){
+    Item.findByIdAndUpdate(itemId, {
+        $set: { itemName: name, 
+            imgUrl: img, 
+            description: desc, 
+            category: cat
+        }
+    }).then(item => item.save()); 
 }
 
 module.exports = {
     createNewItem,
     getAllItems,
     findItemById, 
-    findItemByName
+    findItemByName, 
+    updateItem
 }

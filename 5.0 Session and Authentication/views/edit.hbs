@@ -1,0 +1,19 @@
+<section id="edit">
+    {{#if item}}
+    <form action="/edit/{{item._id}}" method="post">
+     <h1>Edit Item</h1>
+        <label for="item"><span class="label-form">Item Name:</span> <input type="text" name="itemName" value="{{item.itemName}}"></label>
+        <label for="image"><span class="label-form">Image URL:</span> <input type="text" name="imgUrl" value="{{item.imgUrl}}"></label>
+        <label for="description"><span class="label-form">Item Description:</span> <input type="text" name="description" value="{{item.description}}"></label>
+        <select name="category" id="itemCategory">
+            <option value="trees">Trees</option> 
+            <option value="plants">Plants</option>
+            <option value="animals">Animals</option>
+        </select>
+        <input type="submit" class="submit-btn" value="Edit Item">
+    </form>
+    {{else}}
+    <p class="err">No Such Item</p>
+    {{/if}}
+
+</section>
