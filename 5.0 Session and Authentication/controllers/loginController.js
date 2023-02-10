@@ -16,7 +16,10 @@ loginController.post('/', async (req, res) => {
     const verifiedPassword = await checkPassword(password, user.password);
     if (!user[0] || verifiedPassword == false) {
         const errUsr = 'Wrong username or password!';
-        res.render('login', { errUsr });
+        res.render('login', {
+            errUsr,
+            userName: username
+        });
         return;
     }
     // if met log user and send him to homepage with proper views

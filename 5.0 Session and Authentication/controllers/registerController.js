@@ -1,5 +1,5 @@
 const { findByUsername, createUser } = require('../services/userService');
-const { body, validationResult } = require('express-validator');
+const { body, validationResult } = require('express-validator'); // Using express validator library
 
 const registerController = require('express').Router();
 
@@ -9,7 +9,7 @@ registerController.get('/', (req, res) => {
 
 // To do: post method to register user: done! 
 
-// ----- Update: aded middleware verification to the register controller to verify data from the input fields
+// ----- Update: aded middleware validation to the register controller to validate data from the input fields
 
 registerController.post('/', 
     body('username') // Data validation starts here
@@ -18,7 +18,7 @@ registerController.post('/',
         .isLength({ min: 5 }).withMessage('Username must be atleast 5 characters long!').bail()
         .isAlphanumeric().withMessage('Username must include only english letters and numbers!').bail()
         .custom(value => {
-            return findByUsername(value).then(user => { // returns an array, if there is no user its empty array
+            return findByUsername(value).then(user => { // findByUsername returns an array, if there is no user its empty array
                 if (user[0]) {
                     return Promise.reject(`Username ${user[0].username} is taken!`);
                 }
@@ -51,7 +51,7 @@ registerController.post('/',
             const errors = Array.from(err).map((o) => {
                 return { msg: o.msg }
             });
-            
+
             res.render('register', {
                 errors,
                 userName: username

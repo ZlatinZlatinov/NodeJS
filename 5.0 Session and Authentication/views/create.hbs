@@ -2,15 +2,20 @@
 
     <form action="/create" method="post">
      <h1>Create new Item &starf;</h1>
-        <label for="item"><span class="label-form">Item Name:</span> <input type="text" name="itemName"></label>
-        <label for="image"><span class="label-form">Image URL:</span> <input type="text" name="imgUrl"></label>
+        <label for="item"><span class="label-form">Item Name:</span> <input type="text" name="itemName" {{#if itemName}} value="{{itemName}}"{{/if}}></label>
+        <label for="image"><span class="label-form">Image URL:</span> <input type="text" name="imgUrl" {{#if imgUrl}} value="{{imgUrl}}"{{/if}}></label>
         <label for="description"><span class="label-form">Item Description:</span> <textarea name="description" cols="30"
-                rows="5"></textarea></label>
+                rows="5">{{#if description}}{{description}}{{/if}}</textarea></label>
         <select name="category" id="itemCategory">
             <option value="trees">Trees</option> 
             <option value="plants">Plants</option>
             <option value="animals">Animals</option>
         </select>
+        {{#if errors}}
+        {{#each errors}} 
+        <p class="err">{{msg}}</p>
+        {{/each}}
+        {{/if}}
         <input type="submit" class="submit-btn" value="Create Item">
     </form>
 
