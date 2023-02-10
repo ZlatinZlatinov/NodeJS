@@ -1,7 +1,8 @@
 const express = require('express');
 const hbs = require('express-handlebars');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser'); // probably wont need it
 const Handlebars = require('handlebars');
+const cookieParser = require('cookie-parser');
 
 const handlebars = hbs.create({
     extname: '.hbs'
@@ -27,4 +28,6 @@ module.exports = (app) => {
 
     //Settibg up the static files. From static folder we load the static files, like css, images ot others
     app.use('/static', express.static('static'));
+
+    app.use(cookieParser());
 };
