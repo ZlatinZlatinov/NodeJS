@@ -10,7 +10,7 @@ async function getAllAccessories() {
     return await Accessorie.find({}).lean();
 }
 
-async function getAccessoryByID(idAccessory, idCube) {
+async function getAccUpdateList(idAccessory, idCube) {
     const accesory = await Accessorie.findById(idAccessory);
     if (accesory.cubes.includes(idCube)) {
         return true; // This accessory already has the cube.
@@ -27,5 +27,5 @@ async function getAccessoryByID(idAccessory, idCube) {
 module.exports = {
     createNewAccessory,
     getAllAccessories,
-    getAccessoryByID
+    getAccUpdateList
 }

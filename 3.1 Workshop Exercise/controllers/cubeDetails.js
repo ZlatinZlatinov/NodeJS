@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAllAccessories, getAccessoryByID } = require('../services/accessoryService');
+const { getAllAccessories, getAccUpdateList } = require('../services/accessoryService');
 const { searchCubeById } = require('../services/searchCube');
 const { showCubeDetails } = require('../services/showCubeDetails');
 //const {getCubeDetails} = require('../config/dataManagment'); no longer supported
@@ -26,7 +26,7 @@ router.post('/:cubeId', async (req, res) => {
         res.render('accessoryEror');
         return;
     }
-    await getAccessoryByID(accesoryId, cubeId); // it simply pushes the cubeID to the collection
+    await getAccUpdateList(accesoryId, cubeId); // it simply pushes the cubeID to the collection
 
     res.redirect(`/details/${cubeId}`);
 });
