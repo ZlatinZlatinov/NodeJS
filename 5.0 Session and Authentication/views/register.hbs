@@ -1,13 +1,12 @@
 <section id="register">
     <form action="/register" method="post">
-        <label for="username"><span class="label-form">Username:</span> <input type="text" name="username"></label>
-        {{#if errUsr}}
-        <p class="err">{{errUsr}}</p>
-        {{/if}}
+        <label for="username"><span class="label-form">Username:</span> <input type="text" name="username"{{#if userName}} value="{{userName}}"{{/if}}></label>
         <label for="password"><span class="label-form">Password:</span> <input type="password" name="password"></label>
         <label for="repass"><span class="label-form">Repeat Password:</span> <input type="password" name="repass"></label>
-        {{#if errPass}}
-        <p class="err">{{errPass}}</p>
+        {{#if errors}}
+        {{#each errors}}
+        <p class="err">{{msg}}</p>
+        {{/each}}
         {{/if}}
         <input type="submit" class="submit-btn" value="Register">
     </form>
