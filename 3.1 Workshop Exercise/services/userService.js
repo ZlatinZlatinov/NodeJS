@@ -2,11 +2,11 @@ const User = require('../models/User');
 const { hashPassword } = require('../services/bcryptService');
 
 async function findByUsername(username) {
-    return User.find({ username }); // I thin it returns an array?
+    return User.find({ username }); // Returns an array
 }
 
 async function findByUserId(userId) {
-    return User.findById(userId); // nz ko vrushta
+    return User.findById(userId); // Returns an object
 }
 
 async function createUser(username, password) {

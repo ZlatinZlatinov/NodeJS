@@ -10,21 +10,32 @@ loginController.get('/', (req, res) => {
 loginController.post('/', async (req, res) => {
     const { username, password } = req.body;
     try {
+        if (username == '' || password == '') {
+            throw new Error('No empty fields are allowed!');
+        }
+
         const [user] = await findByUsername(username);
-        const verifyPassword = await checkPassword(password, user.password);
-        if (user == undefined || verifyPassword == false) {
+
+        if (user == undefined) {
             throw new Error('Wrong username or password!');
         }
 
+        const verifyPassword = await checkPassword(password, user.password);
+
+        if (verifyPassword == false) {
+            throw new Error('Wrong username or password!');
+        }
+        
         const id = user._id;
         const token = signToken({ id, username });
-        
+
         res.cookie('auth', token);
         res.redirect('/');
     } catch (err) {
-        // to do: add data validation and display proper views!
-        console.log('---> ',err.message);
-        res.redirect('/login');
+        const errors = err.message;
+        res.render('login', {
+            errors
+        });
     }
 });
 

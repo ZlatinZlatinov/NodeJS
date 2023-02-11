@@ -1,4 +1,5 @@
-const connectDB = require('./config/connectToDatabase');
+const connectDB = require('./config/connectToDatabase'); 
+
 
 const env = process.env.NODE_ENV || 'development';
 

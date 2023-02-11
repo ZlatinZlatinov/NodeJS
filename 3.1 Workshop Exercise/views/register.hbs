@@ -1,12 +1,19 @@
+{{#if errors}}
+<div id="notifications">
+    {{#each errors}} 
+    <p class="notification-message">{{msg}}</p>
+    {{/each}}
+</div>
+{{/if}}
 <h1>Register Form</h1>
 <div class="form">
     <form action="#" method="POST">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username">
+        <input type="text" id="username" name="username" {{#if userName}}value="{{userName}}"{{/if}}>
         <label for="password">Password</label>
-        <input type="password" id="password" name="password">
+        <input type="password" id="password" name="password" {{#if password}}value="{{password}}"{{/if}}>
         <label for="rePass">Re-Password</label>
-        <input type="password" id="repeatPassword" name="rePass">
+        <input type="password" id="repeatPassword" name="rePass" {{#if rePass}}value="{{rePass}}"{{/if}}>
         <input type="submit" value="Register">
     </form>
 </div>
