@@ -22,7 +22,7 @@ async function showCubeDetails(cubeId) {
     }
 }
 
-async function updateCubeInfo(cubeId, name, des, url, diff) { 
+async function updateCubeInfo(cubeId, name, des, url, diff) {
     Cube.findById(cubeId)
         .then((cube) => {
             cube.name = name;
@@ -32,7 +32,12 @@ async function updateCubeInfo(cubeId, name, des, url, diff) {
             cube.save();
         });
 }
+
+async function deleteCube(cubeId) {
+    Cube.findByIdAndDelete(cubeId).then();
+}
 module.exports = {
-    showCubeDetails, 
-    updateCubeInfo
+    showCubeDetails,
+    updateCubeInfo, 
+    deleteCube
 }
