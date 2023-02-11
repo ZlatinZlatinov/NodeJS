@@ -9,16 +9,17 @@ const editController = require('../controllers/editController');
 const deleteController = require('../controllers/deleteController');
 const loginController = require('../controllers/loginController');
 const logOutController = require('../controllers/logOutController');
-const registerController = require('../controllers/registerController');
+const registerController = require('../controllers/registerController'); 
+const isAuth = require('../middlewares/isAuth');
 
 module.exports = (app) => {
     app.use('/', homeController);
     app.use('/about', aboutView);
-    app.use('/accessory', createAccessory); 
-    app.use('/create', createNewCube);
+    app.use('/accessory', isAuth, createAccessory); 
+    app.use('/create', isAuth, createNewCube);
     app.use('/details', cubeDetails); 
-    app.use('/delete', deleteController);
-    app.use('/edit', editController); 
+    app.use('/delete', isAuth, deleteController);
+    app.use('/edit', isAuth, editController); 
     app.use('/login', loginController); 
     app.use('/logout', logOutController); 
     app.use('/register', registerController);

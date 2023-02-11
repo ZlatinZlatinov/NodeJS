@@ -5,8 +5,10 @@
   <p><span>Description:</span> {{cube.description}}</p>
   <p><span>Difficulty level:</span> {{cube.difficultyLevel}}</p>
   <a class="btn" href="/">Back</a> 
+  {{#if isOwner}}
   <a class="btn" href="/edit/{{cube._id}}">Edit</a> 
   <a class="btn" href="/delete/{{cube._id}}">Delete</a>
+  {{/if}}
 </div>
 
 <h2>Accessories</h2>
@@ -24,6 +26,7 @@
   {{/if}}
 </div>
 
+{{#if isOwner}}
 <div class="form">
   <h1>Attach a new accessory</h1>
   <form action="/details/{{cube._id}}" method="POST">
@@ -36,6 +39,7 @@
     <input type="submit" value="Attach">
   </form>
 </div> 
+{{/if}}
 {{else}} 
 <div class="details">
   <h2>No such cube</h2>
