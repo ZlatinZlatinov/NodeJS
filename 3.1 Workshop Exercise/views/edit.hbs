@@ -1,12 +1,13 @@
 <h1>Edit Cube</h1>
 <div class="form">
+    {{#if cube}}
     <form action="#" method="POST">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" value="">
+        <input type="text" id="name" name="name" value="{{cube.name}}">
         <label for="description">Description</label>
-        <textarea id="description" name="description"></textarea>
+        <textarea id="description" name="description">{{cube.description}}</textarea>
         <label for="image">ImageUrl</label>
-        <input type="text" id="image" name="imageUrl" value="">
+        <input type="text" id="image" name="imgUrl" value="{{cube.imgUrl}}">
         <label for="difficulty">Difficulty</label>
         <select id="difficulty" name="difficultyLevel" />
         <option value="1">1 - Very Easy</option>
@@ -18,4 +19,7 @@
         </select>
         <input type="submit" value="Edit">
     </form>
+    {{else}}
+    <p>No Such Cube</p>
+    {{/if}}
 </div>

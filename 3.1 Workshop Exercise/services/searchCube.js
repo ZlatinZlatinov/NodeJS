@@ -15,11 +15,21 @@ async function searchCubeById(idCube, idAccessory) {
                 c.accessories.push(idAccessory);
                 c.save();
             });
-    } 
+    }
     return false;
+}
+
+async function findCubeById(cubeId) {
+    return Cube.findById(cubeId).lean();
+}
+
+async function findCubeByName(name) {
+    return Cube.find({ name });
 }
 
 module.exports = {
     searchForCube,
-    searchCubeById
+    searchCubeById,
+    findCubeById, 
+    findCubeByName
 }

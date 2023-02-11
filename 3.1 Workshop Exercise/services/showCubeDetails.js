@@ -22,6 +22,17 @@ async function showCubeDetails(cubeId) {
     }
 }
 
+async function updateCubeInfo(cubeId, name, des, url, diff) { 
+    Cube.findById(cubeId)
+        .then((cube) => {
+            cube.name = name;
+            cube.description = des;
+            cube.imgUrl = url;
+            cube.difficultyLevel = diff;
+            cube.save();
+        });
+}
 module.exports = {
-    showCubeDetails
+    showCubeDetails, 
+    updateCubeInfo
 }
