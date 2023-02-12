@@ -20,7 +20,12 @@ async function searchCubeById(idCube, idAccessory) {
 }
 
 async function findCubeById(cubeId) {
-    return Cube.findById(cubeId).lean();
+    try {
+        return Cube.findById(cubeId).lean();
+    } catch (err) {
+        console.log(err);
+        return false;
+    }
 }
 
 async function findCubeByName(name) {
@@ -30,6 +35,6 @@ async function findCubeByName(name) {
 module.exports = {
     searchForCube,
     searchCubeById,
-    findCubeById, 
+    findCubeById,
     findCubeByName
 }

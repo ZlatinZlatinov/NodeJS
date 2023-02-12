@@ -1,6 +1,13 @@
+{{#if errors}}
+<div id="notifications">
+    {{#each errors}}
+    <p class="notification-message">{{msg}}</p>
+    {{/each}}
+</div>
+{{/if}}
 <h1>Edit Cube</h1>
 <div class="form">
-    {{#if cube}}
+    
     <form action="#" method="POST">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" value="{{cube.name}}">
@@ -11,12 +18,10 @@
         <label for="difficulty">Difficulty</label>
         <select id="difficulty" name="difficultyLevel" />
         {{#each optionsArr}}
-        <option value="{{lvl}}" {{#if selected}} selected="true"{{/if}}>{{msg}}</option> 
+        <option value="{{lvl}}" {{#if selected}} selected="true" {{/if}}>{{msg}}</option>
         {{/each}}
         </select>
         <input type="submit" value="Edit">
     </form>
-    {{else}}
-    <p>No Such Cube</p>
-    {{/if}}
+   
 </div>
