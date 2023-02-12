@@ -14,9 +14,12 @@ async function hashPassword(password) {
 
 
 async function checkPassword(logPass, hashedPass) {
-    bcrypt.compare(logPass, hashedPass, (err, res) => {
+   
+    return bcrypt.compare(logPass, hashedPass).then((res) =>{
         return res;
     });
+
+    //return result;
 }
 module.exports = {
     hashPassword,

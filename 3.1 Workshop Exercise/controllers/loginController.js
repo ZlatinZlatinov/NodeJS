@@ -3,6 +3,7 @@ const { findByUsername } = require('../services/userService');
 const { checkPassword } = require('../services/bcryptService');
 const { signToken } = require('../services/tokenService');
 
+
 loginController.get('/', (req, res) => {
     res.render('login');
 });
@@ -15,14 +16,14 @@ loginController.post('/', async (req, res) => {
         }
 
         const [user] = await findByUsername(username);
-
-        if (user == undefined) {
+        
+        if (!user) {
             throw new Error('Wrong username or password!');
         }
-
+        
         const verifyPassword = await checkPassword(password, user.password);
-
-        if (verifyPassword == false) {
+        
+        if (!verifyPassword) {
             throw new Error('Wrong username or password!');
         }
         
@@ -34,6 +35,7 @@ loginController.post('/', async (req, res) => {
     } catch (err) {
         const errors = err.message;
         res.render('login', {
+            userName: username,
             errors
         });
     }

@@ -1,20 +1,33 @@
+{{#if errors}}
+<div id="notifications">
+  {{#each errors}}
+  <p class="notification-message">{{msg}}</p>
+  {{/each}}
+</div>
+{{/if}}
 <h1>Create</h1>
 <div class="form">
   <form action='/create' method="POST">
     <label for="name">Name</label>
-    <input type="text" id="name" name="name">
+    <input type="text" id="name" name="name" {{#if name}}value="{{name}}" {{/if}}>
     <label for="name">Description</label>
-    <textarea id="name" name="description"></textarea>
+    <textarea id="name" name="description">{{#if description}}{{description}}{{/if}}</textarea>
     <label for="image">ImageUrl</label>
-    <input type="text" id="image" name="imgUrl">
+    <input type="text" id="image" name="imgUrl" {{#if imgUrl}}value="{{imgUrl}}" {{/if}}>
     <label for="difficulty">Difficulty</label>
     <select id="difficulty" name="difficultyLevel">
+      {{#if optionsArr}}
+      {{#each optionsArr}}
+      <option value="{{lvl}}" {{#if selected}} selected="true" {{/if}}>{{msg}}</option>
+      {{/each}}
+      {{else}}
       <option value="1">1 - Very Easy</option>
       <option value="2">2 - Easy</option>
       <option value="3">3 - Medium (Standard 3x3)</option>
       <option value="4">4 - Intermediate</option>
       <option value="5">5 - Expert</option>
       <option value="6">6 - Hardcore</option>
+      {{/if}}
     </select>
     <input type="submit" value="Create">
   </form>

@@ -16,12 +16,12 @@ async function hashPassword(rawPass) {
 }
 
 async function checkPassword(logPass, hashedPass) {
-    bcrypt.compare(logPass, hashedPass, (err, res) => {
-        return res;
-    });
-} 
+    return bcrypt
+        .compare(logPass, hashedPass)
+        .then((res) => res);
+}
 
 module.exports = {
-    hashPassword, 
+    hashPassword,
     checkPassword
 }

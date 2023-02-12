@@ -1,7 +1,7 @@
 const deleteController = require('express').Router();
 const { findCubeById } = require('../services/searchCube');
 const { deleteCube } = require('../services/showCubeDetails');
-const { mapOpions } = require('../utils.js/optionsUtil');
+const { mapOpions } = require('../utils/optionsUtil');
 const { findByUserId } = require('../services/userService');
 
 deleteController.get('/:cubeId', async (req, res) => {
