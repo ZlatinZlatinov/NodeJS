@@ -10,7 +10,7 @@ editController.get('/:cubeId', async (req, res) => {
     try {
         const cube = await findCubeById(cubeId);
         if (!cube) {
-            throw new Error('no such cube');
+            throw new Error('No such cube!');
         }
         const optionsArr = mapOpions(cube.difficultyLevel);
         res.render('edit', {

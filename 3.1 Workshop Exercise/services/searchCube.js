@@ -20,12 +20,12 @@ async function searchCubeById(idCube, idAccessory) {
 }
 
 async function findCubeById(cubeId) {
-    try {
-        return Cube.findById(cubeId).lean();
-    } catch (err) {
-        console.log(err);
-        return false;
-    }
+    return Cube.findById(cubeId).then((cube) => {
+        return cube.lean();
+    })
+        .catch((err) => {
+            return false;
+        });
 }
 
 async function findCubeByName(name) {
