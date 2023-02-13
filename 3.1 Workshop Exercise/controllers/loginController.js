@@ -5,6 +5,10 @@ const { signToken } = require('../services/tokenService');
 
 
 loginController.get('/', (req, res) => {
+    if (req.isAuth) {
+        res.redirect('/');
+        return;
+    }
     res.render('login');
 });
 
@@ -16,17 +20,17 @@ loginController.post('/', async (req, res) => {
         }
 
         const [user] = await findByUsername(username);
-        
+
         if (!user) {
             throw new Error('Wrong username or password!');
         }
-        
+
         const verifyPassword = await checkPassword(password, user.password);
-        
+
         if (!verifyPassword) {
             throw new Error('Wrong username or password!');
         }
-        
+
         const id = user._id;
         const token = signToken({ id, username });
 

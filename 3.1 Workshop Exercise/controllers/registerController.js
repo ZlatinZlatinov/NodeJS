@@ -4,6 +4,10 @@ const { body, validationResult } = require('express-validator');
 const registerController = require('express').Router();
 
 registerController.get('/', (req, res) => {
+    if (req.isAuth) {
+        res.redirect('/');
+        return;
+    }
     res.render('register');
 });
 
@@ -54,7 +58,7 @@ registerController.post('/',
             const errors = Array.from(err).map((obj) => {
                 return { msg: obj.msg };
             });
-            
+
             res.render('register', {
                 errors,
                 userName: username,
