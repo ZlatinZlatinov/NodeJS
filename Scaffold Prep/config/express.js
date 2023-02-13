@@ -11,6 +11,7 @@ module.exports = (app) => {
 
     app.engine('.hbs', handlebars.engine);
     app.set('view engine', '.hbs');
+    app.use(express.urlencoded({ extended: true }));
     app.use('/static', express.static('static'));
     app.use(cookieParser());
     app.use(auth);
