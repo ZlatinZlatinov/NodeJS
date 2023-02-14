@@ -1,4 +1,4 @@
-const { findCryptoById } = require('../sevices/cryptoService');
+const { findCryptoById, } = require('../sevices/cryptoService');
 const { findByUserId } = require('../sevices/userService');
 
 const detailsController = require('express').Router();

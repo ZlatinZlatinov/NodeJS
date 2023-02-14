@@ -86,7 +86,7 @@ createController.post('/',
                 price,
                 description,
                 options
-            })
+            });
         }
     });
 module.exports = createController;
