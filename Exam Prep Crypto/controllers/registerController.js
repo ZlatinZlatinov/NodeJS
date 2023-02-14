@@ -16,7 +16,7 @@ registerController.post('/',
         .custom(username => {
             return findByUsername(username).then(user => {
                 if (user[0]) {
-                    return Promise.reject(`Username ${username} is alredy taken!`);
+                    return Promise.reject(`Username ${username} is already taken!`);
                 }
             });
         }),
@@ -59,7 +59,6 @@ registerController.post('/',
             await createUser(username, email, password);
             res.redirect('/login')// check assignment requirements!
         } catch (err) {
-            console.log(err);
             const errors = Array.from(err).map((obj) => {
                 return { msg: obj.msg };
             });

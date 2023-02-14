@@ -13,7 +13,8 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    }, 
+    cryptoList: [{ type: Schema.Types.ObjectId, ref: 'Crypto' }]
 });
 
 const User = model('User', userSchema);
