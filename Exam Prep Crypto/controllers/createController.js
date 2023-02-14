@@ -64,13 +64,13 @@ createController.post('/',
 
             price = Number(price);
 
-            const userId = req.userId;
-            const user = await findByUserId(userId);
+            //const userId = req.userId;
+            //const user = await findByUserId(userId);
             await createCrypto({ name, image, price, description, paymentMethod, owner: req.userId });
 
-            const [newCrypto] = await findCryptoByName(name);
-            user.cryptoList.push(newCrypto._id);
-            await user.save();
+            // const [newCrypto] = await findCryptoByName(name);
+            // user.cryptoList.push(newCrypto._id);
+            // await user.save();
 
             res.redirect('/catalog');
         } catch (err) {

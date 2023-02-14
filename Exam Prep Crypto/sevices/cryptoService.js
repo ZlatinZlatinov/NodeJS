@@ -5,7 +5,7 @@ async function loadAllCrypto() {
 }
 
 async function findCryptoById(cryptoId) {
-    return Crypto.findById(cryptoId); //chec for errors
+    return Crypto.findById(cryptoId).lean(); //chec for errors
 }
 
 async function findCryptoByName(name) {

@@ -20,7 +20,7 @@ loginController.post('/', async (req, res) => {
         }
 
         const [user] = await findUserByEmail(email);
-        console.log(user);
+        
         if (!user) {
             throw new Error('Wrong username or password!');
         }
