@@ -1,6 +1,27 @@
-<h1>Login Page</h1>
-<form action="/login" method="post">
-    <label for="username">Username:<input type="text" name="username"></label>
-    <label for="password">Password:<input type="password" name="password"></label>
-    <input type="submit" value="Login">
-</form>
+<!-- In case of error, you should display div with class "errorContainer" -->
+<!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+
+<!-- <div>
+            <div class="errorContainer">
+                <p>Error</p>
+            </div>
+        </div> -->
+{{#if errors}}
+<div>
+    <div class="errorContainer">
+        <p>{{errors}}</p>
+    </div>
+</div>
+{{/if}}
+
+<div class="login-box">
+    <h1>Login</h1>
+    <form action="/login" method="post">
+        <label>Email</label>
+        <input type="text" name="email" placeholder="Email.." {{#if email}}value="{{email}}" {{/if}}>
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Password..">
+        <input type="submit" value="Submit">
+    </form>
+    <p>Not have an account? <a href="/register">Register here</a></p>
+</div>

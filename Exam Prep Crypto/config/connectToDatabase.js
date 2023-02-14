@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dbUrl = 'mongodb://localhost:27017/examPrep'; 
+const dbUrl = 'mongodb://localhost:27017/crypto'; 
 
 async function connectDB(){
     mongoose.set('strictQuery', false); //idk what this is, but if i dont set it to false, I get errors

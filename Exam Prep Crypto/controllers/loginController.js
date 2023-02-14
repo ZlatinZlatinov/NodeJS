@@ -1,26 +1,46 @@
-const { logUser } = require('../sevices/userService'); 
-const { findByUsername } = require('../sevices/userService'); 
+const { logUser, findUserByEmail } = require('../sevices/userService');
+//const { findByUsername } = require('../sevices/userService');
 const { checkPassword } = require('../sevices/bcryptService');
 
 const loginController = require('express').Router();
 
 loginController.get('/', (req, res) => {
+    if (req.isUser) {
+        res.redirect('/');
+        return;
+    }
     res.render('login');
 });
 
 loginController.post('/', async (req, res) => {
-    const { username, password } = req.body;
-    //TODO: add data validation! 
+    const { email, password } = req.body;
+    try {
+        if (email == '' || password == '') {
+            throw new Error('No empty fields are allowed!');
+        }
 
-    const [user] = await findByUsername(username);
-    const verifyPassword = await checkPassword(password, user.password);
-    // if all clear log user 
+        const [user] = await findUserByEmail(email);
+        console.log(user);
+        if (!user) {
+            throw new Error('Wrong username or password!');
+        }
 
-    const token = await logUser(username, user._id);
+        const verifyPassword = await checkPassword(password, user.password);
 
-    res.cookie('auth', token);
-    res.redirect('/');
-
+        if (!verifyPassword) {
+            throw new Error('Wrong username or password!');
+        }
+        const username = user.username;
+        const token = await logUser( username, user._id);
+        res.cookie('auth', token);
+        res.redirect('/');
+    } catch (err) {
+        const errors = err.message;
+        res.render('login', {
+            email,
+            errors
+        });
+    }
 });
 
 module.exports = loginController;
