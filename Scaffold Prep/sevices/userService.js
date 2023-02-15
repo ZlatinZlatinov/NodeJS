@@ -19,6 +19,10 @@ async function createUser(username, password) {
     } catch (err) {
         console.log(err);
     }
+} 
+
+async function findUserByEmail(email) {
+    return User.find({ email });
 }
 
 async function logUser(username, id) {
@@ -31,5 +35,6 @@ module.exports = {
     findByUsername,
     findByUserId,
     createUser, 
-    logUser
+    logUser, 
+    findUserByEmail
 }

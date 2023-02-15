@@ -16,7 +16,7 @@ async function createCrypto(payload) {
     Crypto.create(payload);
 }
 
-async function updateCrypto(id, ...params/*name, image, price, description, paymentMethod*/) {
+async function updateCrypto(id, name, image, price, description, paymentMethod) {
     Crypto.findById(id).then((crypto) => {
         crypto.name = name;
         crypto.image = image;
