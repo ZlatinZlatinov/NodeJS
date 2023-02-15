@@ -30,7 +30,7 @@
             <label>Payment method:</label>
             <select id="payment" name="paymentMethod">
                 {{#each options}}
-                <option value="{{msg}}" {{#if selected}}selected="true" {{/if}}>{{msg}}</option>
+                <option value="{{msg}}" selected="{{selected}}">{{msg}}</option>
                 {{/each}}
             </select>
             <input type="submit" id="btn" value="EDIT"></input>

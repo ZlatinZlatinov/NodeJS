@@ -16,13 +16,14 @@ async function createCrypto(payload) {
     Crypto.create(payload);
 }
 
-async function updateCrypto(id, name, image, price, description, paymentMethod) {
+async function updateCrypto(id, ...params/*name, image, price, description, paymentMethod*/) {
     Crypto.findById(id).then((crypto) => {
         crypto.name = name;
         crypto.image = image;
         crypto.price = price;
         crypto.description = description;
         crypto.paymentMethod = paymentMethod;
+        
         crypto.save()
     });
     // }).catch((err) => {
@@ -41,6 +42,6 @@ module.exports = {
     findCryptoById,
     createCrypto,
     findCryptoByName,
-    updateCrypto, 
+    updateCrypto,
     deleteCrypto
 }

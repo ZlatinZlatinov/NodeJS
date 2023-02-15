@@ -24,14 +24,7 @@ editController.get('/:cryptoId', async (req, res) => {
 editController.post('/:cryptoId',
     body('name')
         .trim()
-        .isLength({ min: 2 }).withMessage('Crypto name must be altelast 2 character long!').bail()
-        .custom(name => {
-            return findCryptoByName(name).then(crypto => {
-                if (crypto[0]) {
-                    return Promise.reject(`This name is already taken!`);
-                }
-            });
-        }),
+        .isLength({ min: 2 }).withMessage('Crypto name must be altelast 2 character long!').bail(),
     body('price')
         .trim()
         .isNumeric({ no_symbols: false }).withMessage('Price msut be a number it may contain decimal point').bail()
@@ -85,9 +78,9 @@ editController.post('/:cryptoId',
             const errors = Array.from(err).map((obj) => {
                 return { msg: obj.msg };
             });
-
+            console.log(err);
             const options = mapOpitions(paymentMethod);
-            res.render('create', {
+            res.render('edit', {
                 errors,
                 name,
                 image,
