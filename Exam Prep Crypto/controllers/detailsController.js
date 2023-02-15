@@ -9,28 +9,32 @@ detailsController.get('/:cryptoId', async (req, res) => {
         const crypto = await findCryptoById(cryptoId);
 
         const isUser = req.isUser;
-        const userId = req.userId;
-        const user = await findByUserId(userId);
+        let userId, user;
+
         let isOwner = false;
         let isBought = false;
         
-        if (crypto.owner == userId) {
-            isOwner = true;
-        } 
+        if (isUser) {
+            userId = req.userId;
+            user = await findByUserId(userId);
 
-        if(user.cryptoList.includes(cryptoId) == false && isOwner == false){
-            isBought = true;
+            if (crypto.owner == userId) {
+                isOwner = true;
+            }
+
+            if (user.cryptoList.includes(cryptoId) == false && isOwner == false) {
+                isBought = true;
+            }
         }
 
         res.render('details', {
             crypto,
             isUser,
-            isOwner, 
+            isOwner,
             isBought
         });
-
     } catch (err) {
-
+        console.log(err);
         res.render('404');
     }
 });

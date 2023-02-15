@@ -1,7 +1,13 @@
 const express = require('express');
 const hbs = require('express-handlebars');
 const cookieParser = require('cookie-parser');
-const auth = require('../middlewares/auth');
+const auth = require('../middlewares/auth');  
+const Handlebars = require('handlebars');
+
+Handlebars.registerHelper('option', function (value, label, selectedValue) {
+    var selectedProperty = value == selectedValue ? 'selected="selected"' : '';
+    return new Handlebars.SafeString('<option value="' + value + '"' + selectedProperty + '>' + label + "</option>");
+});
 
 
 module.exports = (app) => {
