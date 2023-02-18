@@ -5,6 +5,10 @@ const { checkPassword } = require('../sevices/bcryptService');
 const loginController = require('express').Router();
 
 loginController.get('/', (req, res) => {
+    if (req.isUser) {
+        res.redirect('/');
+        return;
+    }
     res.render('login');
 });
 
@@ -26,7 +30,7 @@ loginController.post('/', async (req, res) => {
         if (!verifyPassword) {
             throw new Error('Wrong username or password!');
         }
-        
+
         const username = user.username;
         const token = await logUser(username, user._id);
         res.cookie('auth', token);

@@ -6,10 +6,15 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    email: {
+        type: String, 
+        required: true
+    },
     password: {
         type: String,
         required: true
-    }
+    }, 
+    //myList: [{ type: Schema.Types.ObjectId, ref: 'Book' }]
 });
 
 const User = model('User', userSchema);

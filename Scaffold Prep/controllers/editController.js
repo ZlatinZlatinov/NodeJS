@@ -3,11 +3,15 @@ const { getItemById, updateItem } = require('../sevices/itemService');
 
 editController.get('/:itemId', (req, res) => {
     const itemId = req.params.itemId;
-    res.render('edit');
+    const item = req.Item;
+    res.render('edit', {
+        item
+    });
 });
 
 editController.post('/:itemId', (req, res) => {
     const itemId = req.params.itemId; 
+    const item = req.Item;
     //TODO add data validation and edit the item
 });
 
