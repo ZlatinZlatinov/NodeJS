@@ -1,6 +1,6 @@
 const registerController = require('express').Router();
-const { createUser, findByUsername } = require('../sevices/userService');
 const { body, validationResult } = require('express-validator');
+const { createUser, findByUsername } = require('../services/userService');
 
 registerController.get('/', (req, res) => {
     if (req.isUser) {

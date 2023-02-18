@@ -1,6 +1,6 @@
 const createController = require('express').Router();
 const { body, validationResult } = require('express-validator');
-const { getItemById, getItemByName, createItem } = require('../sevices/itemService');
+const { getItemById, getItemByName, createItem } = require('../services/itemService');
 
 createController.get('/', (req, res) => {
     res.render('create');

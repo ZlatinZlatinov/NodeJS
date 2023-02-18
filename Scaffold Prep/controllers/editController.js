@@ -1,5 +1,5 @@
 const editController = require('express').Router();
-const { getItemById, updateItem } = require('../sevices/itemService');
+const { getItemById, updateItem } = require('../services/itemService');
 
 editController.get('/:itemId', (req, res) => {
     const itemId = req.params.itemId;

@@ -1,5 +1,5 @@
 const findItem = require('express').Router();
-const { getItemById } = require('../sevices/itemService');
+const { getItemById } = require('../services/itemService');
 
 findItem.get('/:itemId', async (req, res, next) => {
     const itemId = req.params.itemId;

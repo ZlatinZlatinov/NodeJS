@@ -1,4 +1,4 @@
-const { deleteItem } = require('../sevices/itemService');
+const { deleteItem } = require('../services/itemService');
 
 const deleteController = require('express').Router();
 

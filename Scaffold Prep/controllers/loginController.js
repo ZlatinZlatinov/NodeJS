@@ -1,8 +1,7 @@
-const { logUser } = require('../sevices/userService');
-const { findByUsername, logUser, findUserByEmail } = require('../sevices/userService');
-const { checkPassword } = require('../sevices/bcryptService');
-
 const loginController = require('express').Router();
+const { findByUsername, logUser, findUserByEmail } = require('../services/userService');
+const { checkPassword } = require('../services/bcryptService');
+
 
 loginController.get('/', (req, res) => {
     if (req.isUser) {
