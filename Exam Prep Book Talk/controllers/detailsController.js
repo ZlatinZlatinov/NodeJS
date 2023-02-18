@@ -23,13 +23,12 @@ detailsController.get('/:itemId', async(req, res) => {
         res.render('details', {
             book, 
             isUser, 
-            isOwner
+            isOwner, 
+            isWished
         });
     } catch (err) {
-        console.log(err);
         res.render('404');
     }
-    res.render('details');
 }); 
 
 module.exports = detailsController;
