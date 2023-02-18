@@ -1,5 +1,5 @@
 const detailsController = require('express').Router();
-const { getItemById } = require('../sevices/itemService');
+const { getItemById, checkList } = require('../sevices/itemService');
 const { } = require('../sevices/userService');
 
 detailsController.get('/:itemId', async(req, res) => {
@@ -11,7 +11,9 @@ detailsController.get('/:itemId', async(req, res) => {
 
         if (req.isUser) {
             isUser = true; 
-            if(book.wishingList.includes(req.userId)){
+            const chek = await checkList(itemId, req.userId); 
+            
+            if(chek){ 
                 isWished = true;
             }
 
@@ -19,7 +21,7 @@ detailsController.get('/:itemId', async(req, res) => {
                 isOwner = true;
             }
         } 
-
+        
         res.render('details', {
             book, 
             isUser, 

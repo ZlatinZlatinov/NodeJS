@@ -9,6 +9,7 @@ const notFound = require("../controllers/notFound");
 const registerController = require("../controllers/registerController");
 const isUser = require("../middlewares/isUser"); 
 const deleteController = require("../controllers/deleteController");
+const wishController = require("../controllers/wishController");
 
 
 
@@ -18,9 +19,10 @@ module.exports = (app) => {
     app.use('/catalog', catalogController); 
     app.use('/details', detailsController);
     app.use('/login', loginController); 
-    app.use('/delete', deleteController);
+    app.use('/delete', isUser,deleteController);
     app.use('/edit', isUser, editController);
     app.use('/logout', logOutController);
-    app.use('/register', registerController); 
+    app.use('/register', registerController);  
+    app.use('/wish', isUser, wishController);
     app.use('*', notFound);
 }

@@ -28,6 +28,26 @@ async function updateItem(id, title, author, genre, stars, image, description) {
     });
 }
 
+async function updateItem2(id, userId) {
+    Book.findById(id).then((book) => {
+        if (book.wishingList.includes(userId) == false) {
+            book.wishingList.push(userId);
+        }
+        book.save();
+    });
+} 
+
+async function checkList(id, userId){
+    let result = false;
+    await Book.findById(id).then((book) => {
+        if(book.wishingList.includes(userId)){
+            result = true;
+        }
+    });
+
+    return result;
+}
+
 async function deleteItem(id) {
     Book.findByIdAndDelete(id).then();
 }
@@ -38,5 +58,7 @@ module.exports = {
     getItemByName,
     createItem,
     updateItem,
-    deleteItem
+    updateItem2,
+    deleteItem, 
+    checkList
 }
