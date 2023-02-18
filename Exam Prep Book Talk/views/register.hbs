@@ -3,19 +3,26 @@
 <!--<div class="error-box">
             <p>Error</p>
         </div>-->
+{{#if errors}}
+<div class="error-box">
+    {{#each errors}}
+    <p>{{msg}}</p>
+    {{/each}}
+</div>
+{{/if}}
 
 <section class="register-form-container">
 
     <form action="/register" method="post">
         <h3>Register</h3>
         <label>Email</label>
-        <input type="email" name="email" class="box" id="">
+        <input type="email" name="email" class="box" id="" {{#if email}}value="{{email}}"{{/if}}>
         <label>Username</label>
-        <input type="text" name="username" class="box" id="">
+        <input type="text" name="username" class="box" id="" {{#if userName}}value="{{userName}}" {{/if}}>
         <label>Password</label>
-        <input type="password" name="password" class="box" id="">
+        <input type="password" name="password" class="box" id="" {{#if password}}value="{{password}}"{{/if}}>
         <label>Confirm Password</label>
-        <input type="password" name="repass" class="box" id="">
+        <input type="password" name="rePass" class="box" id="" {{#if rePass}}value="{{rePass}}" {{/if}}>
         <input type="submit" value="Register" class="btn">
         <p>Have an account ? <a href="/login">Click here</a></p>
     </form>

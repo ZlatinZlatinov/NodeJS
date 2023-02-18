@@ -5,6 +5,10 @@ const { findByUsername } = require('../sevices/userService');
 const registerController = require('express').Router();
 
 registerController.get('/', (req, res) => {
+    if (req.isUser) {
+        res.redirect('/');
+        return;
+    }
     res.render('register');
 });
 
