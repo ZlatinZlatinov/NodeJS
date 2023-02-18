@@ -9,7 +9,8 @@ module.exports = function (req, res, next) {
             req.username = decodedToken.username;
             req.userId = decodedToken.id;
             // to do add res.locals if needed 
-            res.locals.isUser = true;
+            res.locals.isUser = true; 
+            res.locals.userId = decodedToken.id;
         } catch (err) {
             res.clearCookie('auth');
             res.redirect('/login');

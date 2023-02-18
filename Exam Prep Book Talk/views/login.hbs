@@ -8,9 +8,9 @@
 
 {{#if errors}}
 <div class="error-box">
-    {{#each errors}}
-    <p>{{msg}}</p>
-    {{/each}}
+    
+    <p>{{errors}}</p>
+    
 </div>
 {{/if}}
 
@@ -19,9 +19,9 @@
     <form action="/login" method="post">
         <h3>Login</h3>
         <label>Email</label>
-        <input type="email" name="email" class="box" id="" {{#if email}}value="{{email}}"{{/if}}>
+        <input type="email" name="email" class="box" id="" {{#if email}}value="{{email}}" {{/if}}>
         <label>Password</label>
-        <input type="password" name="password" class="box" id="" {{#if password}}value="{{password}}"{{/if}}>
+        <input type="password" name="password" class="box" id="" {{#if password}}value="{{password}}" {{/if}}>
         <input type="submit" value="Login" class="btn">
         <p>Don't have an account ? <a href="/register">Create one</a></p>
     </form>

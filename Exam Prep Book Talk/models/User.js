@@ -13,7 +13,8 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    }, 
+    myList: [{ type: Schema.Types.ObjectId, ref: 'Book' }]
 });
 
 const User = model('User', userSchema);

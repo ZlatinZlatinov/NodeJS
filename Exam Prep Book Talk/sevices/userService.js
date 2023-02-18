@@ -29,6 +29,10 @@ async function logUser(username, id) {
     const token = signToken({ id, username });
 
     return token;
+} 
+
+async function getUserList(userId){
+    return User.findById(userId).populate('myList').lean();
 }
 
 module.exports = {
@@ -36,5 +40,6 @@ module.exports = {
     findByUserId,
     createUser, 
     logUser, 
-    findUserByEmail
+    findUserByEmail, 
+    getUserList
 }

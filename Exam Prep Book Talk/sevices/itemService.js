@@ -29,7 +29,7 @@ async function updateItem(id, title, author, genre, stars, image, description) {
 }
 
 async function updateItem2(id, userId) {
-    Book.findById(id).then((book) => {
+    await Book.findById(id).then((book) => {
         if (book.wishingList.includes(userId) == false) {
             book.wishingList.push(userId);
         }
