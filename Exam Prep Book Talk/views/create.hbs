@@ -1,27 +1,34 @@
 <!-- In case of error, you should display div with class "errorContainer" -->
-    <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
-    <!-- <div>
+<!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+<!-- <div>
         <div class="errorContainer">
             <p>Error</p>
         </div>
     </div> -->
+{{#if errors}}
+<div class="error-box">
+    {{#each errors}}
+    <p>{{msg}}</p>
+    {{/each}}
+</div>
+{{/if}}
 
 <section class="create-form-container">
 
     <form action="/create" method="post">
         <h3>Create Book Review</h3>
         <label>Title</label>
-        <input type="text" name="title" class="box" id="">
+        <input type="text" name="title" class="box" id="" {{#if title}} value="{{title}}" {{/if}}>
         <label>Author</label>
-        <input type="text" name="author" class="box" id="">
+        <input type="text" name="author" class="box" id="" {{#if author}} value="{{author}}" {{/if}}>
         <label>Genre</label>
-        <input type="text" name="genre" class="box" id="">
+        <input type="text" name="genre" class="box" id="" {{#if genre}} value="{{genre}}" {{/if}}>
         <label>Stars</label>
-        <input type="number" name="stars" class="box" id="">
+        <input type="number" name="stars" class="box" id="" {{#if stars}} value="{{stars}}" {{/if}}>
         <label>Image</label>
-        <input type="text" name="image" class="box" id="">
+        <input type="text" name="image" class="box" id="" {{#if image}} value="{{image}}" {{/if}}>
         <label>Review</label>
-        <textarea class="box" name="description"></textarea>
+        <textarea class="box" name="description">{{#if description}} {{description}} {{/if}}</textarea>
         <input type="submit" value="Create" class="btn">
     </form>
 </section>

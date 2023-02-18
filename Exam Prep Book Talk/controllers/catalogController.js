@@ -1,8 +1,10 @@
-const catalogController = require('express').Router(); 
+const catalogController = require('express').Router();
+const { loadAllItems } = require('../sevices/itemService');
 
-catalogController.get('/', (req, res) => {
-    res.render('catalog'); 
+catalogController.get('/', async (req, res) => {
+    const books = await loadAllItems();
+    res.render('catalog', { books });
     // just green stuff xdd
-}); 
+});
 
 module.exports = catalogController;
