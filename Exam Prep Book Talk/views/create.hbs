@@ -1,1 +1,27 @@
-<h1>Create Page</h1>
+<!-- In case of error, you should display div with class "errorContainer" -->
+    <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+    <!-- <div>
+        <div class="errorContainer">
+            <p>Error</p>
+        </div>
+    </div> -->
+
+<section class="create-form-container">
+
+    <form action="/create" method="post">
+        <h3>Create Book Review</h3>
+        <label>Title</label>
+        <input type="text" name="title" class="box" id="">
+        <label>Author</label>
+        <input type="text" name="author" class="box" id="">
+        <label>Genre</label>
+        <input type="text" name="genre" class="box" id="">
+        <label>Stars</label>
+        <input type="number" name="stars" class="box" id="">
+        <label>Image</label>
+        <input type="text" name="imgUrl" class="box" id="">
+        <label>Review</label>
+        <textarea class="box" name="description"></textarea>
+        <input type="submit" value="Create" class="btn">
+    </form>
+</section>

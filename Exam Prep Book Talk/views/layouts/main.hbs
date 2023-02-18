@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <title>{{{title}}}</title>
 </head>
+
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Register</a></li>
-                <li><a href="/create">Create</a></li>
-                <li><a href="/edit">Edit</a></li>
-                <li><a href="/logout">Logout</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+
+        <div class="header">
+            <nav class="navbar">
+                <a href="/">Home</a>
+                <a href="/catalog">Catalog</a>
+                <!--Only for logged user-->
+                {{#if isUser}}
+                <a href="/profile">Profile</a>
+                <a href="/create">Create Review</a>
+                <a href="/logout">Logout</a>
+                <!--Only for guest-->
+                {{else}}
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+                {{/if}}
+            </nav>
+        </div>
+
     </header>
     {{{body}}}
 </body>
+
 </html>
