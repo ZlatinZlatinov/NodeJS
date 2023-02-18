@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dbUrl = 'mongodb://localhost:27017/examPrep'; 
+const dbUrl = 'mongodb://localhost:27017/bookTalk'; 
 
 async function connectDB(){ 
     try {
