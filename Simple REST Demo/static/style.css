@@ -1,0 +1,17 @@
+label{
+    display: block;
+}
+
+section{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button.editBtn{
+    margin-right: 10px;
+    margin-left: 10px;
+} 
+
+li{
+    padding: 5px;
+}
