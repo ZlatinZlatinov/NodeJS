@@ -25,13 +25,12 @@ authController.post('/register',
     async (req, res) => {
         const email = req.body.email;
         const password = req.body.password;
-
-        const errors = validationResult(req);
-        if (errors.length > 0) {
-            throw errors;
-        }
-
         try {
+            const { errors } = validationResult(req);
+            if (errors.length > 0) {
+                throw errors;
+            }
+
             const token = await register(email, password);
             res.json(token);
         } catch (err) {
