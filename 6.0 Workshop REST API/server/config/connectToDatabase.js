@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dbUrl = 'mongodb://localhost:2017/furniture';
+const dbUrl = 'mongodb://localhost:27017/furniture';
 
 async function connectDB() {
     try {
@@ -10,6 +10,7 @@ async function connectDB() {
         });
         console.log('Database connected!');
     } catch (err) {
+        console.log('Failed to connect with database!');
         console.log(err.message);
         process.exit(1);
     }
