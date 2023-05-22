@@ -6,8 +6,8 @@ import { itemTemplate } from './common/item.js';
 const dashboardTemplate = (data) => html`
 <div class="row space-top">
     <div class="col-md-12">
-        <h1>Welcome to Furniture System</h1>
-        <p>Select furniture from the catalog to view details.</p>
+        <h1>Добре дошли в поредната авто-морга</h1>
+        <p>Изберете си някоя бракма от каталога.</p>
     </div>
 </div>
 <div class="row space-top">

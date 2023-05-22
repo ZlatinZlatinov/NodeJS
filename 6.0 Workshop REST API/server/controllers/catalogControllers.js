@@ -1,12 +1,20 @@
 const { hasUser } = require('../middlewares/guards');
-const { loadAllItems, createItem, getItemById } = require('../services/carService');
+const { loadAllItems, createItem, getItemById, deleteItem, updateItem, getUserItems } = require('../services/carService');
 const { erorParser } = require('../utils/erorParser');
 const { body, validationResult } = require('express-validator');
 
 const catalogControler = require('express').Router();
 
 catalogControler.get('/catalog', async (req, res) => {
-    const items = await loadAllItems();
+    let items = [];
+
+    if (req.query.where) {
+        const userId = JSON.parse(req.query.where.split('=')[1]);
+        items = await getUserItems(userId);
+    } else {
+        items = await loadAllItems();
+    }
+
     res.json(items);
 });
 
@@ -33,6 +41,20 @@ catalogControler.get('/catalog/:id', async (req, res) => {
     const id = req.params.id;
     const item = await getItemById(id);
     res.json(item);
+});
+
+catalogControler.delete('/catalog/:id', hasUser(), async (req, res) => {
+    const id = req.params.id;
+    await deleteItem(id);
+    res.sendStatus(204).json({ message: 'Item deleted succesfully!' });
+});
+
+catalogControler.put('/catalog/:id', hasUser(), async (req, res) => {
+    const id = req.params.id;
+    const item = req.body;
+    await updateItem(id, item);
+    // add error handling!
+    res.status(200).end();
 });
 
 

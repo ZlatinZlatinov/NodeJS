@@ -5,7 +5,7 @@ import { getItemById, editRecord } from '../api/data.js';
 const editTemplate = (item, onSubmit) => html`
 <div class="row space-top">
     <div class="col-md-12">
-        <h1>Edit Furniture</h1>
+        <h1>Редактиране на подробности</h1>
         <p>Please fill all fields.</p>
     </div>
 </div>

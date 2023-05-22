@@ -17,21 +17,26 @@ async function createItem(payload) {
     Car.create(payload);
 }
 
-async function updateItem(id, newItem) {
-    Car.findById(id).then(async (item) => {
-        item.model = newItem.model;
-        item.make = newItem.make;
-        item.year = Number(newItem.year);
-        item.description = newItem.description;
-        item.price = Number(newItem.Price);
-        item.img = newItem.img;
-        item.material = newItem.material;
-        await item.save();
-    });
+async function updateItem(id, item) {
+    const existing = await Car.findById(id);
+
+    existing.make = item.make;
+    existing.model = item.model;
+    existing.year = item.year;
+    existing.description = item.description;
+    existing.price = item.price;
+    existing.img = item.img;
+    existing.material = item.material;
+
+    return existing.save();
 }
 
 async function deleteItem(id) {
     Car.findByIdAndDelete(id).then();
+}
+
+async function getUserItems(userId) {
+    return Car.find({ _ownerId: userId });
 }
 
 module.exports = {
@@ -40,5 +45,6 @@ module.exports = {
     getItemByName,
     createItem,
     updateItem,
-    deleteItem
+    deleteItem, 
+    getUserItems
 }

@@ -6,7 +6,7 @@ import { itemTemplate } from './common/item.js';
 const myTemplate = (data) => html`
 <div class="row space-top">
     <div class="col-md-12">
-        <h1>My Furniture</h1>
+        <h1>Моите трошки</h1>
         <p>This is a list of your publications.</p>
     </div>
 </div>

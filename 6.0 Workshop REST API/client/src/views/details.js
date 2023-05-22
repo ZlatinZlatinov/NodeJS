@@ -5,7 +5,7 @@ import { getItemById, deleteRecord } from '../api/data.js';
 const detailsTemplate = (item, isOwner, onDelete) => html`
 <div class="row space-top">
     <div class="col-md-12">
-        <h1>Furniture Details</h1>
+        <h1>Детайли за бракмата</h1>
     </div>
 </div>
 <div class="row space-top">
