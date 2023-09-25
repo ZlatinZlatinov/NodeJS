@@ -14,7 +14,7 @@ async function getItemById(id) {
 }
 
 async function createItem(payload) {
-    Car.create(payload);
+    return Car.create(payload);
 }
 
 async function updateItem(id, item) {
