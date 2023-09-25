@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const dbUrl = 'mongodb://localhost:27017/furniture';
+//might need to update localhost to 127.0.0.1://
 
 async function connectDB() {
     try {

@@ -22,7 +22,8 @@ authController.post('/register',
         .withMessage('Ivalid email address!'),
     body('password').trim().isLength({ min: 6 })
         .withMessage('Password should be at least 6 characters long!'),
-    async (req, res) => {
+    async (req, res) => { 
+        console.log('Request recived!');
         const email = req.body.email;
         const password = req.body.password;
         try {
